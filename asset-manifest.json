@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/react-homework-template/static/css/main.7acaea2f.css",
-    "main.js": "/react-homework-template/static/js/main.07d3183d.js",
-    "index.html": "/react-homework-template/index.html",
-    "main.7acaea2f.css.map": "/react-homework-template/static/css/main.7acaea2f.css.map",
-    "main.07d3183d.js.map": "/react-homework-template/static/js/main.07d3183d.js.map"
+    "main.css": "/project-FoodBoutique/static/css/main.7acaea2f.css",
+    "main.js": "/project-FoodBoutique/static/js/main.95e1e723.js",
+    "index.html": "/project-FoodBoutique/index.html",
+    "main.7acaea2f.css.map": "/project-FoodBoutique/static/css/main.7acaea2f.css.map",
+    "main.95e1e723.js.map": "/project-FoodBoutique/static/js/main.95e1e723.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.07d3183d.js"
+    "static/js/main.95e1e723.js"
   ]
 }
