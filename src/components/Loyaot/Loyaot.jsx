@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 
 export function Loyaot() {
   return (
@@ -40,10 +40,10 @@ export function Loyaot() {
           <p></p>
           <ul>
             <li>
-              <a href="#">Privacy Policy</a>
+              <Link>Privacy Policy</Link>
             </li>
             <li>
-              <a href="#">Terms of Service</a>
+              <Link>Terms of Service</Link>
             </li>
           </ul>
         </div>
