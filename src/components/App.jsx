@@ -1,16 +1,15 @@
+import { Route, Routes } from 'react-router-dom';
+import { Loyaot } from './Loyaot/Loyaot';
+import Home from 'pages/Home/Home';
+import Cart from 'pages/Cart/Cart';
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <Routes>
+      <Route path="/" element={<Loyaot />}>
+        <Route index element={<Home />} />
+        <Route path="cart" element={<Cart />} />
+      </Route>
+    </Routes>
   );
 };
