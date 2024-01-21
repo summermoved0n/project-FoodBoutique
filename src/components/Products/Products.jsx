@@ -4,7 +4,7 @@ import { ProductsItem } from 'components/ProductsItem/ProductsItem';
 
 const FoodBoutique = new FoodBoutiqueApi();
 
-export default function Products() {
+export default function Products({ modalClick, addToCart }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -13,11 +13,14 @@ export default function Products() {
       setProducts(results);
     });
   }, []);
-  console.log(products);
   return (
     <>
       <ul className="products-list">
-        <ProductsItem products={products} />
+        <ProductsItem
+          modalClick={modalClick}
+          products={products}
+          addToCart={addToCart}
+        />
       </ul>
     </>
   );

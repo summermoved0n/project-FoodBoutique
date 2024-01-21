@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 
 export function Loyaot() {
+  const [cartLength, setCartLength] = useState(0);
+
+  useEffect(() => {
+    const storage = JSON.parse(localStorage.getItem('products'));
+    setCartLength(storage.length);
+    console.log(cartLength);
+  }, [cartLength]);
+
   return (
     <>
       <header>
         <p>Food Boutique</p>
         <nav>
           <NavLink to="/">Home</NavLink>
-          <NavLink to="/cart">CART (0)</NavLink>
+          <NavLink to="/cart">CART ({cartLength})</NavLink>
         </nav>
       </header>
       <main>

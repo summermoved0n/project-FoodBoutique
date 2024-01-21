@@ -2,3 +2,21 @@
   width: 295px;
   border: 1px solid white;
 }
+
+.products-icon-btn {
+  border: none;
+  background-color: var(--primary-color);
+  padding: 0;
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.products-icon {
+  width: 18px;
+  height: 18px;
+  fill: var(--cards-color);
+}

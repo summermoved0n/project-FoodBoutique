@@ -30,4 +30,24 @@ export default class FoodBoutiqueApi {
     const data = await response.json();
     return data;
   }
+
+  async getFetchCategories() {
+    const url = 'https://food-boutique.b.goit.study/api/products/categories';
+    const response = await fetch(url);
+    if (!response.ok) {
+      return Promise.reject(new Error('Oops, something went wrong! 😥'));
+    }
+    const data = await response.json();
+    return data;
+  }
+
+  async getFetchById(id) {
+    const url = `https://food-boutique.b.goit.study/api/products/${id}`;
+    const response = await fetch(url);
+    if (!response.ok) {
+      return Promise.reject(new Error('Oops, something went wrong! 😥'));
+    }
+    const data = await response.json();
+    return data;
+  }
 }

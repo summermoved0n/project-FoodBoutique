@@ -9,6 +9,10 @@
   --black: rgba(1, 1, 1, 1);
 }
 
+button {
+  cursor: pointer;
+}
+
 body {
   font-family: 'PP Neue Montreal', sans-serif;
   color: #010101;

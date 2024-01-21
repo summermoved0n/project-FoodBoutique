@@ -4,7 +4,7 @@ import { DiscountProductsItem } from 'components/DiscountProductsItem/DiscountPr
 
 const FoodBoutique = new FoodBoutiqueApi();
 
-export default function DiscountProducts() {
+export default function DiscountProducts({ modalClick }) {
   const [discount, setDiscount] = useState([]);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export default function DiscountProducts() {
     <>
       <h2>Discount products</h2>
       <ul>
-        <DiscountProductsItem products={discount} />
+        <DiscountProductsItem modalClick={modalClick} products={discount} />
       </ul>
     </>
   );
