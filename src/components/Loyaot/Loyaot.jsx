@@ -1,14 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
+import { useCart } from 'helpers/cartContext';
 
 export function Loyaot() {
-  const [cartLength, setCartLength] = useState(0);
-
-  useEffect(() => {
-    const storage = JSON.parse(localStorage.getItem('products'));
-    setCartLength(storage.length);
-    console.log(cartLength);
-  }, [cartLength]);
+  const { addCart } = useCart();
 
   return (
     <>
@@ -16,9 +11,10 @@ export function Loyaot() {
         <p>Food Boutique</p>
         <nav>
           <NavLink to="/">Home</NavLink>
-          <NavLink to="/cart">CART ({cartLength})</NavLink>
+          <NavLink to="/cart">CART ({addCart.length ?? 0})</NavLink>
         </nav>
       </header>
+      <hr />
       <main>
         <Outlet />
       </main>

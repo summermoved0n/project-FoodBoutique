@@ -5,19 +5,16 @@ import { Modal } from 'components/Modal/Modal';
 import { PopularProducts } from 'components/PopularProducts/PopularProducts';
 import Products from 'components/Products/Products';
 import React, { useEffect, useState } from 'react';
-
-const LS_KEY = 'products';
+import { useCart } from 'helpers/cartContext';
 
 export default function Home() {
-  const [cart, setCart] = useState(() => {
-    return JSON.parse(localStorage.getItem(LS_KEY)) ?? [];
-  });
+  const { addCart, setAddCart } = useCart();
   const [modalItem, setModalItem] = useState('');
   const [isModal, setIsModal] = useState(false);
 
   useEffect(() => {
-    window.localStorage.setItem(LS_KEY, JSON.stringify(cart));
-  }, [cart]);
+    window.localStorage.setItem('products', JSON.stringify(addCart));
+  }, [addCart]);
 
   const onModalClick = id => {
     setModalItem(id);
@@ -29,7 +26,7 @@ export default function Home() {
   };
 
   const addToCart = data => {
-    setCart(prevState => [...prevState, data]);
+    setAddCart(prevState => [...prevState, data]);
   };
 
   return (
@@ -37,13 +34,19 @@ export default function Home() {
       <Hero />
       <Filter />
       <section className="home">
-        {isModal && <Modal modalClose={modalClose} modalItem={modalItem} />}
+        {isModal && (
+          <Modal
+            modalClose={modalClose}
+            modalItem={modalItem}
+            addToCart={addToCart}
+          />
+        )}
         <div className="left-wraper">
           <Products modalClick={onModalClick} addToCart={addToCart} />
         </div>
         <div className="right-wraper">
-          <PopularProducts modalClick={onModalClick} />
-          <DiscountProducts modalClick={onModalClick} />
+          <PopularProducts modalClick={onModalClick} addToCart={addToCart} />
+          <DiscountProducts modalClick={onModalClick} addToCart={addToCart} />
         </div>
       </section>
     </>

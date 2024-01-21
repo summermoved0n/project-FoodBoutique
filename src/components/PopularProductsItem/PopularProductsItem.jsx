@@ -1,11 +1,20 @@
 import React from 'react';
 import icons from '../../images/icons.svg';
 
-export const PopularProductsItem = ({ products, modalClick }) => {
+export const PopularProductsItem = ({ products, modalClick, addToCart }) => {
   return (
     <>
       {products.map(
-        ({ category, img, is10PercentOff, name, popularity, size, _id }) => (
+        ({
+          category,
+          img,
+          is10PercentOff,
+          name,
+          price,
+          popularity,
+          size,
+          _id,
+        }) => (
           <li
             key={_id}
             id={_id}
@@ -26,6 +35,15 @@ export const PopularProductsItem = ({ products, modalClick }) => {
                 type="button"
                 onClick={e => {
                   e.stopPropagation();
+                  addToCart({
+                    img,
+                    is10PercentOff,
+                    name,
+                    category,
+                    size,
+                    price,
+                    _id,
+                  });
                 }}
               >
                 <svg className="products-icon">

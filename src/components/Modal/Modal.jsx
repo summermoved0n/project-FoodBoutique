@@ -6,7 +6,7 @@ import icons from '../../images/icons.svg';
 const FoodBoutique = new FoodBoutiqueApi();
 const modalRoot = document.querySelector('#modal-root');
 
-export function Modal({ modalItem, modalClose }) {
+export function Modal({ modalItem, modalClose, addToCart }) {
   const [modalContent, setModalContent] = useState([]);
 
   useEffect(() => {
@@ -31,8 +31,17 @@ export function Modal({ modalItem, modalClose }) {
     }
   };
 
-  const { category, desc, img, is10PercentOff, name, popularity, price, size } =
-    modalContent;
+  const {
+    category,
+    desc,
+    img,
+    is10PercentOff,
+    name,
+    popularity,
+    price,
+    size,
+    _id,
+  } = modalContent;
 
   return createPortal(
     <div className="modal-conteiner" onClick={onBackDropClick}>
@@ -59,7 +68,20 @@ export function Modal({ modalItem, modalClose }) {
         </div>
         <div>
           <p>${price}</p>
-          <button type="button">
+          <button
+            type="button"
+            onClick={() =>
+              addToCart({
+                img,
+                is10PercentOff,
+                name,
+                category,
+                size,
+                price,
+                _id,
+              })
+            }
+          >
             Add to{' '}
             <svg className="products-icon">
               <use xlinkHref={`${icons}#icon-cart`} />

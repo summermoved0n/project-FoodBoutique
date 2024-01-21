@@ -35,13 +35,12 @@ export const ProductsItem = ({ products, modalClick, addToCart }) => {
               onClick={e => {
                 e.stopPropagation();
                 addToCart({
-                  category,
                   img,
                   is10PercentOff,
                   name,
-                  popularity,
-                  price,
+                  category,
                   size,
+                  price,
                   _id,
                 });
               }}
