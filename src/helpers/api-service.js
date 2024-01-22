@@ -1,7 +1,7 @@
 export default class FoodBoutiqueApi {
   async getFetchProduct() {
     const url =
-      'https://food-boutique.b.goit.study/api/products?page=1&limit=9';
+      'https://food-boutique.b.goit.study/api/products?page=1&limit=18';
     const response = await fetch(url);
     if (!response.ok) {
       return Promise.reject(new Error('Oops, something went wrong! 😥'));

@@ -3,9 +3,9 @@ import { Filter } from 'components/Filter/Filter';
 import { Hero } from 'components/Hero/Hero';
 import { Modal } from 'components/Modal/Modal';
 import { PopularProducts } from 'components/PopularProducts/PopularProducts';
-import Products from 'components/Products/Products';
 import React, { useEffect, useState } from 'react';
 import { useCart } from 'helpers/cartContext';
+import PaginatedItems from 'components/Products/Products';
 
 export default function Home() {
   const { addCart, setAddCart } = useCart();
@@ -42,7 +42,11 @@ export default function Home() {
           />
         )}
         <div className="left-wraper">
-          <Products modalClick={onModalClick} addToCart={addToCart} />
+          <PaginatedItems
+            modalClick={onModalClick}
+            addToCart={addToCart}
+            itemsPerPage={9}
+          />
         </div>
         <div className="right-wraper">
           <PopularProducts modalClick={onModalClick} addToCart={addToCart} />
