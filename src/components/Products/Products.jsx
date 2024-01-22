@@ -5,11 +5,7 @@ import ReactPaginate from 'react-paginate';
 
 const FoodBoutique = new FoodBoutiqueApi();
 
-export default function PaginatedItems({
-  itemsPerPage,
-  modalClick,
-  addToCart,
-}) {
+export default function Products({ itemsPerPage, modalClick, addToCart }) {
   const [products, setProducts] = useState([]);
   const [itemOffset, setItemOffset] = useState(0);
 
@@ -17,19 +13,17 @@ export default function PaginatedItems({
     FoodBoutique.getFetchProduct().then(data => {
       const { results } = data;
       setProducts(results);
+      window.localStorage.setItem('filter', JSON.stringify(results));
     });
   }, []);
 
   const endOffset = itemOffset + itemsPerPage;
-  console.log(`Loading items from ${itemOffset} to ${endOffset}`);
   const currentItems = products.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(products.length / itemsPerPage);
 
   const handlePageClick = event => {
     const newOffset = (event.selected * itemsPerPage) % products.length;
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
-    );
+    console.log(`Items from ${event.selected} to ${newOffset}`);
     setItemOffset(newOffset);
   };
 
@@ -42,15 +36,19 @@ export default function PaginatedItems({
           addToCart={addToCart}
         />
       </ul>
-      <ReactPaginate
-        breakLabel="..."
-        nextLabel="next >"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={5}
-        pageCount={pageCount}
-        previousLabel="< previous"
-        renderOnZeroPageCount={null}
-      />
+      <div className="products-paginate-conteiner">
+        <ReactPaginate
+          breakLabel="..."
+          nextLabel=">"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={1}
+          marginPagesDisplayed={2}
+          pageCount={pageCount}
+          previousLabel="<"
+          renderOnZeroPageCount={null}
+          containerClassName="products-paginate-list"
+        />
+      </div>
     </>
   );
 }

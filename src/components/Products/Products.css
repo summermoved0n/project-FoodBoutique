@@ -4,3 +4,14 @@
   gap: 10px;
   flex-wrap: wrap;
 }
+
+.products-paginate-conteiner {
+  margin: 10px 0;
+  border: 1px dashed white;
+}
+
+.products-paginate-list {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}

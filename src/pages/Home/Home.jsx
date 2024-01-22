@@ -5,7 +5,7 @@ import { Modal } from 'components/Modal/Modal';
 import { PopularProducts } from 'components/PopularProducts/PopularProducts';
 import React, { useEffect, useState } from 'react';
 import { useCart } from 'helpers/cartContext';
-import PaginatedItems from 'components/Products/Products';
+import Products from 'components/Products/Products';
 
 export default function Home() {
   const { addCart, setAddCart } = useCart();
@@ -42,7 +42,7 @@ export default function Home() {
           />
         )}
         <div className="left-wraper">
-          <PaginatedItems
+          <Products
             modalClick={onModalClick}
             addToCart={addToCart}
             itemsPerPage={9}
