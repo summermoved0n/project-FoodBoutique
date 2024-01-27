@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
-import { useCart } from 'helpers/cartContext';
+import { useCart } from 'helpers/cartContexts';
 import icons from '../../images/icons.svg';
+import { HomeLink, CartLink } from '../../helpers/styled-conponents';
 
 export function Loyaot() {
   const { addCart } = useCart();
@@ -9,26 +10,26 @@ export function Loyaot() {
   return (
     <>
       <header className="header">
-        <p className="header-logo-conteiner">
-          <svg className="header-icon-logo">
-            <use xlinkHref={`${icons}#icon-logo`} />
-          </svg>
-          <svg className="header-food-boutique">
-            <use xlinkHref={`${icons}#icon-food-boutique`} />
-          </svg>
-        </p>
+        <div className="header-logo-conteiner">
+          <NavLink to="/">
+            <svg className="header-icon-logo">
+              <use xlinkHref={`${icons}#icon-logo`} />
+            </svg>
+            <svg className="header-food-boutique">
+              <use xlinkHref={`${icons}#icon-food-boutique`} />
+            </svg>
+          </NavLink>
+        </div>
         <nav className="header-navigation">
-          <span>
-            <NavLink to="/">Home</NavLink>
-          </span>
-          <span>
-            <NavLink to="/cart">
+          <HomeLink to="/">Home</HomeLink>
+          <CartLink to="/cart">
+            <span className="header-nav-icon-conteiner">
               <svg className="header-navigation-icon">
                 <use xlinkHref={`${icons}#icon-cart`} />
               </svg>
-              CART ({addCart.length ?? 0})
-            </NavLink>
-          </span>
+            </span>
+            <span> CART ({addCart.length ?? 0})</span>
+          </CartLink>
         </nav>
       </header>
       <main>

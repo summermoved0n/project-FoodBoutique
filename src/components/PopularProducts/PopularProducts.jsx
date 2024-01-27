@@ -10,7 +10,7 @@ export function PopularProducts({ modalClick, addToCart }) {
     FoodBoutique.getFetchPopular().then(data => {
       setPopular(data);
     });
-  });
+  }, []);
   return (
     <>
       <h2>Popular products</h2>

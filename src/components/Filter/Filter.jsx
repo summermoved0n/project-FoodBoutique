@@ -4,27 +4,62 @@ import { FilterItem } from 'components/FilterItem/FilterItem';
 
 const FoodBoutique = new FoodBoutiqueApi();
 
-export const Filter = () => {
+export const Filter = ({ setCategory, setKeyword, category }) => {
   const [filter, setFilter] = useState([]);
+  const [input, setInput] = useState('');
 
   useEffect(() => {
     FoodBoutique.getFetchCategories().then(data => {
       setFilter(data);
-    }, []);
-  });
+    });
+  }, []);
+
+  const handleSelectChange = e => {
+    const { value } = e.target;
+    setCategory(value);
+  };
+
+  const handleInputChange = e => {
+    const { value } = e.target;
+    setInput(value);
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    setKeyword(input);
+  };
 
   return (
     <section>
-      <input type="text" placeholder="Search for anything" />
-      <select name="filter" id="">
-        {/* <option value="categories" disabled selected hidden>
-          Сategories
-        </option> */}
-        <FilterItem categories={filter} />
-      </select>
-      <select name="atoz" id="">
-        <option>A to Z</option>
-      </select>
+      <p>Filters:</p>
+      <form onSubmit={handleSubmit}>
+        <span>
+          <input
+            type="text"
+            value={input}
+            placeholder="Search for anything"
+            onChange={handleInputChange}
+          />
+          <button type="submit">🔍</button>
+        </span>
+        <select
+          name="filter"
+          id=""
+          onChange={handleSelectChange}
+          defaultValue="categories"
+        >
+          {/* <option
+            value="categories"
+            // disabled="categories"
+            // selected="categories"
+            // hidden="categories"
+          >
+            Сategories
+          </option> */}
+          <FilterItem categories={filter} />
+          {category && <option value="">Show All</option>}
+        </select>
+      </form>
     </section>
   );
 };

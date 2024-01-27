@@ -5,6 +5,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-bottom: 77px;
 }
 
 .header-logo-conteiner {
@@ -34,10 +35,17 @@
   gap: 24px;
 }
 
-.header-navigation-icon {
+.header-nav-icon-conteiner {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   background-color: var(--primary-color);
-  padding: 8px;
+  height: 38px;
+  width: 38px;
   border-radius: 50%;
+}
+
+.header-navigation-icon {
   width: 18px;
   height: 18px;
   fill: var(--cards-color);

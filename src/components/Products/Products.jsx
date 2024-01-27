@@ -5,17 +5,26 @@ import ReactPaginate from 'react-paginate';
 
 const FoodBoutique = new FoodBoutiqueApi();
 
-export default function Products({ itemsPerPage, modalClick, addToCart }) {
+export default function Products({
+  itemsPerPage,
+  modalClick,
+  addToCart,
+  keyword,
+  category,
+}) {
   const [products, setProducts] = useState([]);
   const [itemOffset, setItemOffset] = useState(0);
 
   useEffect(() => {
-    FoodBoutique.getFetchProduct().then(data => {
+    FoodBoutique.getFetchProduct(keyword, category).then(data => {
       const { results } = data;
       setProducts(results);
-      window.localStorage.setItem('filter', JSON.stringify(results));
+      window.localStorage.setItem(
+        'filter',
+        JSON.stringify([{ keyword, category }])
+      );
     });
-  }, []);
+  }, [category, keyword]);
 
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = products.slice(itemOffset, endOffset);
