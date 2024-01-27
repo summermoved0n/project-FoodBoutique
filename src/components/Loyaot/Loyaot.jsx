@@ -1,20 +1,36 @@
 import React from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import { useCart } from 'helpers/cartContext';
+import icons from '../../images/icons.svg';
 
 export function Loyaot() {
   const { addCart } = useCart();
 
   return (
     <>
-      <header>
-        <p>Food Boutique</p>
-        <nav>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/cart">CART ({addCart.length ?? 0})</NavLink>
+      <header className="header">
+        <p className="header-logo-conteiner">
+          <svg className="header-icon-logo">
+            <use xlinkHref={`${icons}#icon-logo`} />
+          </svg>
+          <svg className="header-food-boutique">
+            <use xlinkHref={`${icons}#icon-food-boutique`} />
+          </svg>
+        </p>
+        <nav className="header-navigation">
+          <span>
+            <NavLink to="/">Home</NavLink>
+          </span>
+          <span>
+            <NavLink to="/cart">
+              <svg className="header-navigation-icon">
+                <use xlinkHref={`${icons}#icon-cart`} />
+              </svg>
+              CART ({addCart.length ?? 0})
+            </NavLink>
+          </span>
         </nav>
       </header>
-      <hr />
       <main>
         <Outlet />
       </main>

@@ -1,0 +1,44 @@
+/** HEADER */
+
+.header {
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo-conteiner {
+  display: flex;
+  align-items: center;
+}
+
+.header-icon-logo {
+  width: 20px;
+  height: 20px;
+  fill: #e8e8e2;
+  background-color: #6d8434;
+  padding: 6px;
+  border-radius: 50%;
+}
+
+.header-food-boutique {
+  width: 155px;
+  height: 20px;
+  fill: var(--black);
+}
+
+.header-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.header-navigation-icon {
+  background-color: var(--primary-color);
+  padding: 8px;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  fill: var(--cards-color);
+}
