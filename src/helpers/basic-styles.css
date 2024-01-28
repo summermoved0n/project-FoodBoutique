@@ -16,9 +16,6 @@ button {
 body {
   font-family: 'PP Neue Montreal', sans-serif;
   color: #010101;
-  width: 1240px;
-  margin: 0 auto;
-  padding: 0 15px;
   background-color: #e8e8e2;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

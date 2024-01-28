@@ -36,7 +36,7 @@ export default function Home() {
   };
 
   return (
-    <>
+    <div>
       <Hero />
       <Filter
         setCategory={setCategory}
@@ -51,7 +51,6 @@ export default function Home() {
             addToCart={addToCart}
           />
         )}
-
         <div className="home-left-wraper">
           <Suspense fallback={<div>Loading...</div>}>
             <Products
@@ -68,6 +67,6 @@ export default function Home() {
           <DiscountProducts modalClick={onModalClick} addToCart={addToCart} />
         </div>
       </section>
-    </>
+    </div>
   );
 }
