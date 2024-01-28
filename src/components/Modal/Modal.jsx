@@ -3,7 +3,6 @@ import { createPortal } from 'react-dom';
 import FoodBoutiqueApi from 'helpers/api-service';
 import icons from '../../images/icons.svg';
 import { AddedtoCart } from 'helpers/services';
-import { FaCheck } from 'react-icons/fa6';
 
 const FoodBoutique = new FoodBoutiqueApi();
 const modalRoot = document.querySelector('#modal-root');
