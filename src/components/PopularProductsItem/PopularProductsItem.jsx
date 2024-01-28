@@ -25,28 +25,39 @@ export const PopularProductsItem = ({ products, modalClick, addToCart }) => {
               modalClick(_id);
             }}
           >
-            <div>
-              <img src={img} alt={name} width={56} />
-            </div>
-            <div>
-              <h3>{name}</h3>
-              <span>Category: {category}</span>
-              <span>Size: {size}</span>
-              <span>Popularity: {popularity}</span>
+            <img className="popular-image" src={img} alt={name} width={56} />
+
+            <div className="popular-content-conteiner">
+              <h3 className="popular-item-title">{name}</h3>
+              <ul className="popular-content-list">
+                <li className="popular-content-text">
+                  <span>Category:</span> {category}
+                </li>
+                <li className="popular-content-text">
+                  <span>Size:</span> {size}
+                </li>
+                <li className="popular-content-text">
+                  <span>Popularity:</span> {popularity}
+                </li>
+              </ul>
               {AddedtoCart(_id) ? (
                 <button
                   type="button"
-                  className="products-icon-btn"
+                  className="popular-icon-btn"
                   onClick={e => {
                     e.stopPropagation();
                   }}
                 >
-                  <FaCheck size={18} color="#E8E8E2" />
+                  <FaCheck
+                    className="popular-icon-check"
+                    size={12}
+                    color="#6d8434"
+                  />
                 </button>
               ) : (
                 <button
                   type="button"
-                  className="products-icon-btn"
+                  className="popular-icon-btn"
                   onClick={e => {
                     e.stopPropagation();
                     addToCart({
@@ -60,7 +71,7 @@ export const PopularProductsItem = ({ products, modalClick, addToCart }) => {
                     });
                   }}
                 >
-                  <svg className="products-icon-cart">
+                  <svg className="popular-icon-cart">
                     <use xlinkHref={`${icons}#icon-cart`} />
                   </svg>
                 </button>

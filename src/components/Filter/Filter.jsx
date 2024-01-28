@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import FoodBoutiqueApi from 'helpers/api-service';
 import { FilterItem } from 'components/FilterItem/FilterItem';
+import icons from '../../images/icons.svg';
 
 const FoodBoutique = new FoodBoutiqueApi();
 
@@ -30,19 +31,25 @@ export const Filter = ({ setCategory, setKeyword, category }) => {
   };
 
   return (
-    <section>
-      <p>Filters:</p>
+    <section className="filter-section">
+      <p className="filter-text">Filters:</p>
       <form onSubmit={handleSubmit}>
-        <span>
+        <span className="filter-input-wraper">
           <input
+            className="filter-input"
             type="text"
             value={input}
             placeholder="Search for anything"
             onChange={handleInputChange}
           />
-          <button type="submit">🔍</button>
+          <button type="submit" className="filter-btn">
+            <svg className="filter-icon">
+              <use xlinkHref={`${icons}#icon-search`}></use>
+            </svg>
+          </button>
         </span>
         <select
+          className="filter-select"
           name="filter"
           id=""
           onChange={handleSelectChange}

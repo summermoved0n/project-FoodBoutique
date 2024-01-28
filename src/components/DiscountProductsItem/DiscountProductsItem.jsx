@@ -16,44 +16,49 @@ export const DiscountProductsItem = ({ products, modalClick, addToCart }) => {
               modalClick(_id);
             }}
           >
-            <div>
-              <img src={img} alt={name} width={56} />
-            </div>
-            <div>
-              <h3>{name}</h3>
-              <p>${price}</p>
-              {AddedtoCart(_id) ? (
-                <button
-                  type="button"
-                  className="products-icon-btn"
-                  onClick={e => {
-                    e.stopPropagation();
-                  }}
-                >
-                  <FaCheck size={18} color="#E8E8E2" />
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  className="products-icon-btn"
-                  onClick={e => {
-                    e.stopPropagation();
-                    addToCart({
-                      img,
-                      is10PercentOff,
-                      name,
-                      category,
-                      size,
-                      price,
-                      _id,
-                    });
-                  }}
-                >
-                  <svg className="products-icon-cart">
-                    <use xlinkHref={`${icons}#icon-cart`} />
-                  </svg>
-                </button>
-              )}
+            {is10PercentOff && (
+              <svg className="discount-icon">
+                <use xlinkHref={`${icons}#icon-discount`}></use>
+              </svg>
+            )}
+            <img className="discount-image" src={img} alt={name} width={105} />
+            <div className="discount-content-conteiner">
+              <h3 className="discount-content-text">{name}</h3>
+              <div className="discount-content-wraper">
+                <p className="discount-content-text">${price}</p>
+                {AddedtoCart(_id) ? (
+                  <button
+                    type="button"
+                    className="products-icon-btn"
+                    onClick={e => {
+                      e.stopPropagation();
+                    }}
+                  >
+                    <FaCheck size={18} color="#E8E8E2" />
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    className="products-icon-btn"
+                    onClick={e => {
+                      e.stopPropagation();
+                      addToCart({
+                        img,
+                        is10PercentOff,
+                        name,
+                        category,
+                        size,
+                        price,
+                        _id,
+                      });
+                    }}
+                  >
+                    <svg className="products-icon-cart">
+                      <use xlinkHref={`${icons}#icon-cart`} />
+                    </svg>
+                  </button>
+                )}
+              </div>
             </div>
           </li>
         )

@@ -1,0 +1,14 @@
+/* .discount-products-conteiner {
+} */
+.discount-products-title {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.14;
+  margin-bottom: 20px;
+}
+
+.discount-products-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

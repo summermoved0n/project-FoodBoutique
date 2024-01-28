@@ -1,6 +1,63 @@
 .products-item {
-  width: 295px;
-  border: 1px solid white;
+  width: 255px;
+  background-color: #fafafa;
+  border-radius: 20px;
+  padding: 20px;
+  transition: box-shadow 250ms ease;
+  position: relative;
+}
+
+.products-item:hover {
+  box-shadow: 0px 9.1px 16.534px 0px rgba(0, 0, 0, 0.02),
+    0px 41.6px 46.475px 0px rgba(0, 0, 0, 0.04),
+    0px 105.3px 124.678px 0px rgba(0, 0, 0, 0.05),
+    0px 208px 286px 0px rgba(0, 0, 0, 0.07);
+}
+
+.product-image-conteiner {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: #e8e8e2;
+  border-radius: 10px;
+  padding: 19px 0;
+  margin-bottom: 20px;
+}
+
+.products-title {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.products-text-list {
+  display: flex;
+  gap: 9px 8px;
+  flex-wrap: wrap;
+  width: 220px;
+}
+
+.products-text-item {
+  font-size: 12px;
+  line-height: 1.17;
+}
+
+.products-text-list span {
+  color: rgba(1, 1, 1, 0.3);
+}
+
+.products-bottom-conteiner {
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.products-text-price {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
 }
 
 .products-icon-btn {
@@ -13,6 +70,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color 250ms ease;
+}
+
+.products-icon-btn:is(:hover, :focus) {
+  background-color: var(--dark-green);
 }
 
 .products-icon-cart {
@@ -25,4 +87,13 @@
   width: 18px;
   height: 18px;
   fill: var(--cards-color);
+}
+
+.product-discount-icon {
+  position: absolute;
+  height: 60px;
+  width: 60px;
+  top: 0;
+  right: 10px;
+  transform: translateY(-3px);
 }

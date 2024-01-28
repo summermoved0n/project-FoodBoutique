@@ -25,44 +25,66 @@ export const ProductsItem = ({ products, modalClick, addToCart }) => {
               modalClick(_id);
             }}
           >
-            <img src={img} alt={name} width={140} />
-            <h3>{name}</h3>
-            <span>Category: {category}</span>
-            <span>Size: {size}</span>
-            <span>Popularity: {popularity}</span>
-            <p>${price}</p>
-            {AddedtoCart(_id) ? (
-              <button
-                type="button"
-                className="products-icon-btn"
-                onClick={e => {
-                  e.stopPropagation();
-                }}
-              >
-                <FaCheck size={18} color="#E8E8E2" />
-              </button>
-            ) : (
-              <button
-                type="button"
-                className="products-icon-btn"
-                onClick={e => {
-                  e.stopPropagation();
-                  addToCart({
-                    img,
-                    is10PercentOff,
-                    name,
-                    category,
-                    size,
-                    price,
-                    _id,
-                  });
-                }}
-              >
-                <svg className="products-icon-cart">
-                  <use xlinkHref={`${icons}#icon-cart`} />
-                </svg>
-              </button>
+            {is10PercentOff && (
+              <svg className="product-discount-icon">
+                <use xlinkHref={`${icons}#icon-discount`}></use>
+              </svg>
             )}
+            <div className="product-image-conteiner">
+              <img
+                className="products-image"
+                src={img}
+                alt={name}
+                width={140}
+              />
+            </div>
+            <h3 className="products-title">{name}</h3>
+            <ul className="products-text-list">
+              <li className="products-text-item">
+                <span>Category:</span> {category}
+              </li>
+              <li className="products-text-item">
+                <span>Size:</span> {size}
+              </li>
+              <li className="products-text-item">
+                <span>Popularity:</span> {popularity}
+              </li>
+            </ul>
+            <div className="products-bottom-conteiner">
+              <p className="products-text-price">${price}</p>
+              {AddedtoCart(_id) ? (
+                <button
+                  type="button"
+                  className="products-icon-btn"
+                  onClick={e => {
+                    e.stopPropagation();
+                  }}
+                >
+                  <FaCheck size={18} color="#E8E8E2" />
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  className="products-icon-btn"
+                  onClick={e => {
+                    e.stopPropagation();
+                    addToCart({
+                      img,
+                      is10PercentOff,
+                      name,
+                      category,
+                      size,
+                      price,
+                      _id,
+                    });
+                  }}
+                >
+                  <svg className="products-icon-cart">
+                    <use xlinkHref={`${icons}#icon-cart`} />
+                  </svg>
+                </button>
+              )}
+            </div>
           </li>
         )
       )}

@@ -1,17 +1,91 @@
 .products-list {
   display: flex;
-  width: calc(100% - 20px) / 3;
-  gap: 10px;
+  min-width: calc(100% - 20px) / 3;
+  gap: 40px 20px;
   flex-wrap: wrap;
+  padding-bottom: 40px;
 }
 
 .products-paginate-conteiner {
-  margin: 10px 0;
-  border: 1px dashed white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .products-paginate-list {
   display: flex;
   gap: 8px;
   justify-content: center;
+}
+
+.products-paginate-break {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  color: #a3a3a3;
+  cursor: pointer;
+}
+
+.products-paginate-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  color: #a3a3a3;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.43;
+  cursor: pointer;
+}
+
+.products-paginate-active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  background-color: #6d8434;
+  color: #e8e8e2;
+}
+
+.products-paginate-previous {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  margin-right: 80px;
+  cursor: pointer;
+  background-color: #fafafa;
+  color: #a3a3a3;
+  border-radius: 50%;
+  transition: all 250ms ease;
+}
+
+.products-paginate-previous:is(:hover, :active) {
+  background-color: #6d8434;
+  color: #e8e8e2;
+}
+
+.products-paginate-next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  margin-left: 80px;
+  cursor: pointer;
+  background-color: #fafafa;
+  color: #a3a3a3;
+  border-radius: 50%;
+  transition: all 250ms ease;
+}
+
+.products-paginate-next:is(:hover, :active) {
+  background-color: #6d8434;
+  color: #e8e8e2;
 }

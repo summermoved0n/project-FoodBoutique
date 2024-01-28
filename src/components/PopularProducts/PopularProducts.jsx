@@ -12,15 +12,15 @@ export function PopularProducts({ modalClick, addToCart }) {
     });
   }, []);
   return (
-    <>
-      <h2>Popular products</h2>
-      <ul>
+    <div className="popular-products-conteiner">
+      <h2 className="popular-products-title">Popular products</h2>
+      <ul className="popular-products-list">
         <PopularProductsItem
           modalClick={modalClick}
           products={popular}
           addToCart={addToCart}
         />
       </ul>
-    </>
+    </div>
   );
 }

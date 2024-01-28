@@ -13,15 +13,15 @@ export default function DiscountProducts({ modalClick, addToCart }) {
     });
   }, []);
   return (
-    <>
-      <h2>Discount products</h2>
-      <ul>
+    <div className="discount-products-conteiner">
+      <h2 className="discount-products-title">Discount products</h2>
+      <ul className="discount-products-list">
         <DiscountProductsItem
           modalClick={modalClick}
           products={discount}
           addToCart={addToCart}
         />
       </ul>
-    </>
+    </div>
   );
 }

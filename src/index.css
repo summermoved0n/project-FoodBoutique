@@ -3,5 +3,10 @@
 @import url('./components/Products/Products.css');
 @import url('./components/ProductsItem/ProductsItem.css');
 @import url('./pages/Home/Home.css');
+@import url('./components/PopularProducts/PopularProducts.css');
 @import url('./components/PopularProductsItem/PopularProductsItem.css');
+@import url('./components/DiscountProducts/DiscountProducts.css');
+@import url('./components/DiscountProductsItem/DiscountProductsItem.css');
 @import url('./components/Modal/Modal.css');
+@import url('./components/Hero/Hero.css');
+@import url('./components/Filter/Filter.css');

@@ -1,0 +1,16 @@
+.popular-products-conteiner {
+  padding-bottom: 40px;
+}
+
+.popular-products-title {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.14;
+  margin-bottom: 20px;
+}
+
+.popular-products-list {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}

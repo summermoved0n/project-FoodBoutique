@@ -1,3 +1,76 @@
 .popular-item {
+  max-width: 251px;
+  padding: 12px;
   display: flex;
+  gap: 10px;
+  border-radius: 10px;
+  background: #fafafa;
+  position: relative;
+}
+
+.popular-image {
+  padding: 9px;
+  border-radius: 10px;
+  background-color: #e8e8e2;
+}
+
+.popular-content-conteiner {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.popular-item-title {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.popular-content-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.popular-content-text {
+  font-size: 12px;
+  line-height: 1.17;
+}
+
+.popular-content-text span {
+  color: rgba(1, 1, 1, 0.3);
+}
+
+.popular-icon-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  padding: 0;
+  height: 20px;
+  width: 20px;
+  top: 12px;
+  right: 12px;
+  background-color: #e8e8e2;
+  border: none;
+  border-radius: 50%;
+  transition: all 250ms ease;
+}
+
+.popular-icon-cart {
+  width: 12px;
+  height: 12px;
+  fill: #6d8434;
+  transition: all 250ms ease;
+}
+
+.popular-icon-btn:is(:hover, :focus) {
+  background-color: #6d8434;
+}
+
+.popular-icon-btn:is(:hover, :focus) .popular-icon-cart {
+  fill: #e8e8e2;
+}
+
+.popular-icon-btn:is(:hover, :focus) .popular-icon-check {
+  fill: #e8e8e2;
 }

@@ -7,10 +7,127 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #63636385;
+  background-color: rgba(1, 1, 1, 0.4);
 }
 
 .modal-content {
-  width: 600px;
+  width: 520px;
   background-color: var(--cards-color);
+  border-radius: 20px;
+  position: relative;
+  padding: 40px;
+}
+
+.modal-top-wraper {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.modal-close-btn {
+  position: absolute;
+  padding: 0;
+  top: 24px;
+  right: 24px;
+  height: 28px;
+  width: 28px;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-close-icon {
+  height: 16px;
+  width: 16px;
+  fill: #010101;
+}
+
+.modal-image {
+  border-radius: 10px;
+  background-color: #e8e8e2;
+  padding: 26px 40px;
+}
+
+.modal-title {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.modal-list {
+  display: flex;
+  gap: 9px 8px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.modal-item {
+  font-size: 12px;
+  line-height: 1.17;
+}
+
+.modal-item span {
+  color: rgba(1, 1, 1, 0.3);
+}
+
+.modal-text {
+  width: 260px;
+  color: rgba(1, 1, 1, 0.7);
+  font-size: 16px;
+  line-height: 1.25;
+  max-height: 110px;
+  overflow-y: auto;
+}
+
+.modal-bottom-wraper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.modal-text-price {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.modal-add-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  height: 40px;
+  width: 130px;
+  border: none;
+  background-color: var(--primary-color);
+  color: #e8e8e2;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.modal-remove-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  height: 40px;
+  width: 177px;
+  border: none;
+  background-color: var(--primary-color);
+  color: #e8e8e2;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.modal-add-icon {
+  height: 18px;
+  width: 18px;
+  fill: #e8e8e2;
 }
