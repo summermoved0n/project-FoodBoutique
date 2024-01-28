@@ -15,7 +15,13 @@
   align-items: center;
 }
 
-.products-icon {
+.products-icon-cart {
+  width: 18px;
+  height: 18px;
+  fill: var(--cards-color);
+}
+
+.products-icon-check {
   width: 18px;
   height: 18px;
   fill: var(--cards-color);

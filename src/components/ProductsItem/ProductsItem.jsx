@@ -1,5 +1,7 @@
 import React from 'react';
 import icons from '../../images/icons.svg';
+import { AddedtoCart } from 'helpers/services';
+import { FaCheck } from 'react-icons/fa6';
 
 export const ProductsItem = ({ products, modalClick, addToCart }) => {
   return (
@@ -29,26 +31,38 @@ export const ProductsItem = ({ products, modalClick, addToCart }) => {
             <span>Size: {size}</span>
             <span>Popularity: {popularity}</span>
             <p>${price}</p>
-            <button
-              type="button"
-              className="products-icon-btn"
-              onClick={e => {
-                e.stopPropagation();
-                addToCart({
-                  img,
-                  is10PercentOff,
-                  name,
-                  category,
-                  size,
-                  price,
-                  _id,
-                });
-              }}
-            >
-              <svg className="products-icon">
-                <use xlinkHref={`${icons}#icon-cart`} />
-              </svg>
-            </button>
+            {AddedtoCart(_id) ? (
+              <button
+                type="button"
+                className="products-icon-btn"
+                onClick={e => {
+                  e.stopPropagation();
+                }}
+              >
+                <FaCheck size={18} color="#E8E8E2" />
+              </button>
+            ) : (
+              <button
+                type="button"
+                className="products-icon-btn"
+                onClick={e => {
+                  e.stopPropagation();
+                  addToCart({
+                    img,
+                    is10PercentOff,
+                    name,
+                    category,
+                    size,
+                    price,
+                    _id,
+                  });
+                }}
+              >
+                <svg className="products-icon-cart">
+                  <use xlinkHref={`${icons}#icon-cart`} />
+                </svg>
+              </button>
+            )}
           </li>
         )
       )}

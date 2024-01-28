@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import FoodBoutiqueApi from 'helpers/api-service';
 import { ProductsItem } from 'components/ProductsItem/ProductsItem';
 import ReactPaginate from 'react-paginate';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { BiDotsHorizontalRounded } from 'react-icons/bi';
 
 const FoodBoutique = new FoodBoutiqueApi();
 
@@ -47,13 +49,13 @@ export default function Products({
       </ul>
       <div className="products-paginate-conteiner">
         <ReactPaginate
-          breakLabel="..."
-          nextLabel=">"
+          breakLabel={<BiDotsHorizontalRounded />}
+          nextLabel={<IoIosArrowForward />}
           onPageChange={handlePageClick}
           pageRangeDisplayed={1}
           marginPagesDisplayed={2}
           pageCount={pageCount}
-          previousLabel="<"
+          previousLabel={<IoIosArrowBack />}
           renderOnZeroPageCount={null}
           containerClassName="products-paginate-list"
         />
