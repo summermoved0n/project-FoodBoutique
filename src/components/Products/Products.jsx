@@ -8,6 +8,7 @@ import { BiDotsHorizontalRounded } from 'react-icons/bi';
 const FoodBoutique = new FoodBoutiqueApi();
 
 export default function Products({
+  removeFromCart,
   itemsPerPage,
   modalClick,
   addToCart,
@@ -42,6 +43,7 @@ export default function Products({
     <div>
       <ul className="products-list">
         <ProductsItem
+          removeFromCart={removeFromCart}
           modalClick={modalClick}
           products={currentItems}
           addToCart={addToCart}

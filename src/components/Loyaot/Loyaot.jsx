@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import { useCart } from 'helpers/cartContexts';
 import icons from '../../images/icons.svg';
 import { HomeLink, CartLink } from '../../helpers/styled-conponents';
@@ -9,8 +9,8 @@ export function Loyaot() {
 
   return (
     <>
-      <div className="conteiner">
-        <header className="header">
+      <header className="header">
+        <div className="conteiner header-conteiner">
           <div className="header-logo-conteiner">
             <NavLink to="/">
               <svg className="header-icon-logo">
@@ -32,64 +32,91 @@ export function Loyaot() {
               <span> CART ({addCart.length ?? 0})</span>
             </CartLink>
           </nav>
-        </header>
-        <main>
-          <Outlet />
-        </main>
-      </div>
+        </div>
+      </header>
+      <main>
+        <Outlet />
+      </main>
       <footer className="footer">
-        <div>
-          <div className="footer-left-wraper">
-            <NavLink to="/">
-              <svg className="footer-icon-logo">
-                <use xlinkHref={`${icons}#icon-logo`} />
-              </svg>
-              <svg className="footer-food-boutique">
-                <use xlinkHref={`${icons}#icon-food-boutique`} />
-              </svg>
-            </NavLink>
-            <ul>
-              <li>
-                <svg>
-                  <use xlinkHref={`${icons}#`}></use>
+        <div className="conteiner">
+          <div className="footer-top-wraper">
+            <div className="footer-left-wraper">
+              <a className="footer-food-link" href="../">
+                <svg className="footer-icon-logo">
+                  <use xlinkHref={`${icons}#icon-logo`} />
                 </svg>
+                <svg className="footer-food-boutique">
+                  <use xlinkHref={`${icons}#icon-food-boutique`} />
+                </svg>
+              </a>
+              <ul className="footer-social-list">
+                <li>
+                  <a href="https://www.facebook.com/goITclub/">
+                    <svg className="footer-icon-social">
+                      <use xlinkHref={`${icons}#icon-facebook`}></use>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/goitclub/">
+                    <svg className="footer-icon-social">
+                      <use xlinkHref={`${icons}#icon-instagram`}></use>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.youtube.com/c/GoIT">
+                    <svg className="footer-icon-social">
+                      <use xlinkHref={`${icons}#icon-youtube`}></use>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="footer-center-wraper">
+              <h2 className="footer-title">
+                Discover the Variety of Flavors and Quality
+              </h2>
+              <p className="footer-text">
+                An online store where you will find fresh, natural and delicious
+                products for a healthy life and unforgettable gastronomic
+                adventures.
+              </p>
+            </div>
+            <div className="footer-right-wraper">
+              <p className="footer-subscribe-text">
+                Subscribe and learn about new products!
+              </p>
+              <input
+                className="footer-input"
+                type="email"
+                placeholder="Email"
+              />
+              <button className="footer-send-btn" type="button">
+                Send
+              </button>
+            </div>
+          </div>
+          <div className="footer-bottom-wraper">
+            <p className="footer-bottom-text">
+              Food Boutique. All rights reserved.
+            </p>
+            <ul className="footer-bottom-list">
+              <li>
+                <button className="footer-bottom-btn" type="button">
+                  Privacy Policy
+                </button>
               </li>
               <li>
-                <svg>
-                  <use xlinkHref={`${icons}#`}></use>
-                </svg>
+                <p className="footer-bottom-slash">/</p>
               </li>
               <li>
-                <svg>
-                  <use xlinkHref={`${icons}#`}></use>
-                </svg>
+                <button className="footer-bottom-btn" type="button">
+                  Terms of Service
+                </button>
               </li>
             </ul>
           </div>
-          <div>
-            <h2>Discover the Variety of Flavors and Quality</h2>
-            <p>
-              An online store where you will find fresh, natural and delicious
-              products for a healthy life and unforgettable gastronomic
-              adventures.
-            </p>
-          </div>
-          <div>
-            <p>Subscribe and learn about new products!</p>
-            <input type="email" placeholder="Email" />
-            <button type="button">Send</button>
-          </div>
-        </div>
-        <div>
-          <p>Food Boutique. All rights reserved.</p>
-          <ul>
-            <li>
-              <Link>Privacy Policy</Link>
-            </li>
-            <li>
-              <Link>Terms of Service</Link>
-            </li>
-          </ul>
         </div>
       </footer>
     </>

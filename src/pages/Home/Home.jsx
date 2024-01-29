@@ -5,6 +5,7 @@ import { Modal } from 'components/Modal/Modal';
 import { PopularProducts } from 'components/PopularProducts/PopularProducts';
 import React, { Suspense, lazy, useEffect, useState } from 'react';
 import { useCart } from 'helpers/cartContexts';
+import toast, { Toaster } from 'react-hot-toast';
 // import Products from 'components/Products/Products';
 
 const Products = lazy(() => import('../../components/Products/Products'));
@@ -33,10 +34,20 @@ export default function Home() {
 
   const addToCart = data => {
     setAddCart(prevState => [...prevState, data]);
+    toast.success(`'${data.name}' has been added to your cart!`);
+  };
+
+  const removeFromCart = (id, name) => {
+    const deleteFromCart = addCart.filter(item => item._id !== id);
+    setAddCart(deleteFromCart);
+    toast.error(`'${name}' has been removed from the cart!`);
   };
 
   return (
     <div>
+      <div>
+        <Toaster position="bottom-right" reverseOrder={false} />
+      </div>
       <Hero />
       <Filter
         setCategory={setCategory}
@@ -49,11 +60,13 @@ export default function Home() {
             modalClose={modalClose}
             modalItem={modalItem}
             addToCart={addToCart}
+            removeFromCart={removeFromCart}
           />
         )}
         <div className="home-left-wraper">
           <Suspense fallback={<div>Loading...</div>}>
             <Products
+              removeFromCart={removeFromCart}
               modalClick={onModalClick}
               addToCart={addToCart}
               itemsPerPage={9}
@@ -63,8 +76,16 @@ export default function Home() {
           </Suspense>
         </div>
         <div className="home-right-wraper">
-          <PopularProducts modalClick={onModalClick} addToCart={addToCart} />
-          <DiscountProducts modalClick={onModalClick} addToCart={addToCart} />
+          <PopularProducts
+            modalClick={onModalClick}
+            addToCart={addToCart}
+            removeFromCart={removeFromCart}
+          />
+          <DiscountProducts
+            modalClick={onModalClick}
+            addToCart={addToCart}
+            removeFromCart={removeFromCart}
+          />
         </div>
       </section>
     </div>

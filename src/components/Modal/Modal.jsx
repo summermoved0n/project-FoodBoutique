@@ -7,7 +7,7 @@ import { AddedtoCart } from 'helpers/services';
 const FoodBoutique = new FoodBoutiqueApi();
 const modalRoot = document.querySelector('#modal-root');
 
-export function Modal({ modalItem, modalClose, addToCart }) {
+export function Modal({ modalItem, modalClose, addToCart, removeFromCart }) {
   const [modalContent, setModalContent] = useState([]);
 
   useEffect(() => {
@@ -87,6 +87,7 @@ export function Modal({ modalItem, modalClose, addToCart }) {
               className="modal-remove-btn"
               onClick={e => {
                 e.stopPropagation();
+                removeFromCart(_id, name);
               }}
             >
               Remove from

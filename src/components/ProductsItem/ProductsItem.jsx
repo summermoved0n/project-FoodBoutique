@@ -3,7 +3,12 @@ import icons from '../../images/icons.svg';
 import { AddedtoCart } from 'helpers/services';
 import { FaCheck } from 'react-icons/fa6';
 
-export const ProductsItem = ({ products, modalClick, addToCart }) => {
+export const ProductsItem = ({
+  products,
+  modalClick,
+  addToCart,
+  removeFromCart,
+}) => {
   return (
     <>
       {products.map(
@@ -58,6 +63,7 @@ export const ProductsItem = ({ products, modalClick, addToCart }) => {
                   className="products-icon-btn"
                   onClick={e => {
                     e.stopPropagation();
+                    removeFromCart(_id, name);
                   }}
                 >
                   <FaCheck size={18} color="#E8E8E2" />
