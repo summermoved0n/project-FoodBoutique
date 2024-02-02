@@ -1,4 +1,11 @@
-.home {
+.home-conteiner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 15px 61px;
+  outline: 1px solid red;
+}
+
+.home-section {
   display: flex;
   gap: 40px;
 }

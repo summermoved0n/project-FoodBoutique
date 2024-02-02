@@ -3,6 +3,7 @@
 @import url('./components/Products/Products.css');
 @import url('./components/ProductsItem/ProductsItem.css');
 @import url('./pages/Home/Home.css');
+@import url('./pages/Cart/Cart.css');
 @import url('./components/PopularProducts/PopularProducts.css');
 @import url('./components/PopularProductsItem/PopularProductsItem.css');
 @import url('./components/DiscountProducts/DiscountProducts.css');

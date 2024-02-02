@@ -9,7 +9,7 @@ export const CartItem = ({ products, handleDelete }) => {
             <button type="button" onClick={() => handleDelete(_id)}>
               X
             </button>
-            <img src={img} alt={name} />
+            <img src={img} alt={name} width={72} />
             <h3>{name}</h3>
             <span>Category: {category}</span>
             <span>Size: {size}</span>

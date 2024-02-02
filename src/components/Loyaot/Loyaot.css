@@ -60,15 +60,6 @@
   fill: var(--cards-color);
 }
 
-/** MAIN */
-
-main {
-  padding-bottom: 61px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 /** FOOTER */
 
 .footer {

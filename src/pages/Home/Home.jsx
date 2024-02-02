@@ -44,7 +44,7 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div className="home-conteiner">
       <div>
         <Toaster position="bottom-right" reverseOrder={false} />
       </div>
@@ -54,7 +54,7 @@ export default function Home() {
         setKeyword={setKeyword}
         category={category}
       />
-      <section className="home">
+      <section className="home-section">
         {isModal && (
           <Modal
             modalClose={modalClose}
