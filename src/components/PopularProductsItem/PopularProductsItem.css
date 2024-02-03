@@ -6,6 +6,7 @@
   border-radius: 10px;
   background: #fafafa;
   position: relative;
+  cursor: pointer;
 }
 
 .popular-image {

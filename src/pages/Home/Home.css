@@ -2,7 +2,7 @@
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 15px 61px;
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
 }
 
 .home-section {
@@ -11,5 +11,5 @@
 }
 
 .home-left-wraper {
-  max-width: 925px;
+  width: 925px;
 }

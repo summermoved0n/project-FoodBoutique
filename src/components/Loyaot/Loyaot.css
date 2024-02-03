@@ -17,9 +17,26 @@
   align-items: center;
 }
 
-.header-logo-conteiner {
+.header-icon-link {
   display: flex;
   align-items: center;
+  padding: 0 10px;
+  height: 60px;
+  border-radius: 9px;
+  transition: all 250ms ease;
+}
+
+.header-icon-link:is(:hover, :focus) {
+  background-color: var(--primary-color);
+}
+
+.header-icon-link:is(:hover, :focus) .header-icon-logo {
+  fill: #6d8434;
+  background-color: #e8e8e2;
+}
+
+.header-icon-link:is(:hover, :focus) .header-food-boutique {
+  fill: #e8e8e2;
 }
 
 .header-icon-logo {
@@ -29,12 +46,14 @@
   background-color: #6d8434;
   padding: 6px;
   border-radius: 50%;
+  transition: all 250ms ease;
 }
 
 .header-food-boutique {
   width: 155px;
   height: 20px;
   fill: var(--black);
+  transition: all 250ms ease;
 }
 
 .header-navigation {
@@ -42,6 +61,22 @@
   justify-content: center;
   align-items: center;
   gap: 24px;
+}
+
+.header-home-link {
+  transition: all 250ms ease;
+}
+
+.header-home-link:is(:hover, :focus) {
+  background-color: #586f1f;
+}
+
+.header-cart-link-text {
+  transition: all 250ms ease;
+}
+
+.header-cart-link:is(:hover, :focus) .header-cart-link-text {
+  color: #586f1f;
 }
 
 .header-nav-icon-conteiner {

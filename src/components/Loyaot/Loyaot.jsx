@@ -11,25 +11,28 @@ export function Loyaot() {
     <>
       <header className="header">
         <div className="conteiner header-conteiner">
-          <div className="header-logo-conteiner">
-            <NavLink to="/">
-              <svg className="header-icon-logo">
-                <use xlinkHref={`${icons}#icon-logo`} />
-              </svg>
-              <svg className="header-food-boutique">
-                <use xlinkHref={`${icons}#icon-food-boutique`} />
-              </svg>
-            </NavLink>
-          </div>
+          <NavLink className="header-icon-link" to="/">
+            <svg className="header-icon-logo">
+              <use xlinkHref={`${icons}#icon-logo`} />
+            </svg>
+            <svg className="header-food-boutique">
+              <use xlinkHref={`${icons}#icon-food-boutique`} />
+            </svg>
+          </NavLink>
           <nav className="header-navigation">
-            <HomeLink to="/">Home</HomeLink>
-            <CartLink to="/cart">
+            <HomeLink className="header-home-link" to="/">
+              Home
+            </HomeLink>
+            <CartLink className="header-cart-link" to="/cart">
               <span className="header-nav-icon-conteiner">
                 <svg className="header-navigation-icon">
                   <use xlinkHref={`${icons}#icon-cart`} />
                 </svg>
               </span>
-              <span> CART ({addCart.length ?? 0})</span>
+              <span className="header-cart-link-text">
+                {' '}
+                CART ({addCart.length ?? 0})
+              </span>
             </CartLink>
           </nav>
         </div>

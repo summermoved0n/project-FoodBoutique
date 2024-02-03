@@ -5,6 +5,7 @@
   padding: 20px;
   transition: box-shadow 250ms ease;
   position: relative;
+  cursor: pointer;
 }
 
 .products-item:hover {

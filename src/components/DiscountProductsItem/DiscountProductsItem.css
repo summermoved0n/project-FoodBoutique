@@ -4,6 +4,7 @@
   border-radius: 15px;
   background-color: #fafafa;
   position: relative;
+  cursor: pointer;
 }
 
 .discount-image {

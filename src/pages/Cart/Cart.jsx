@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useCart } from 'helpers/cartContexts';
 import { CartItem } from 'components/CartItem/CartItem';
 import icons from '../../images/icons.svg';
+import { Link } from 'react-router-dom';
+import { CartModal } from 'components/CartModal/CartModal';
 
 export default function Cart() {
   const { addCart, setAddCart } = useCart();
+  const [cartInput, setCartInput] = useState('');
+  const [cartShowModal, setCartShowModal] = useState(false);
 
   const onDeleteAll = () => {
     setAddCart([]);
@@ -15,8 +19,32 @@ export default function Cart() {
     setAddCart(newCart);
   };
 
+  const totalPrice = () => {
+    const cartPrice = addCart.map(item => item.price);
+    const total = cartPrice.reduce((acc, value) => acc + value, 0);
+    return total.toFixed(2);
+  };
+
+  const handleCartChange = e => {
+    const { value } = e.currentTarget;
+    setCartInput(value);
+  };
+
+  const cartSubmit = e => {
+    e.preventDefault();
+    setCartInput('');
+    setCartShowModal(true);
+    setTimeout(() => setAddCart([]), 1000);
+  };
+
+  const closeModal = () => {
+    console.log('hello');
+    setCartShowModal(false);
+  };
+
   return (
     <div className="cart-conteiner">
+      {cartShowModal && <CartModal closeModal={closeModal} />}
       <h2 className="cart-title">
         <div className="cart-icon-wraper">
           <svg className="cart-title-icon">
@@ -38,20 +66,40 @@ export default function Cart() {
                 <use xlinkHref={`${icons}#icon-remove`}></use>
               </svg>
             </button>
-            <ul>
+            <ul className="cart-list">
               {addCart && (
                 <CartItem products={addCart} handleDelete={handleDelete} />
               )}
             </ul>
           </div>
           <div className="cart-products-right-wraper">
-            <h2>Your Order</h2>
-            <div>
-              <p>Total</p>
-              <span>Sum: $0</span>
+            <h3 className="cart-order-title">Your Order</h3>
+            <div className="cart-total-conteiner">
+              <p className="cart-total-text">Total</p>
+              <span className="cart-total-sum">
+                Sum: <span>${totalPrice()}</span>
+              </span>
             </div>
-            <input type="text" name="" id="" placeholder="Enter your email" />
-            <button type="submit">Checkout</button>
+            <form onSubmit={cartSubmit} className="cart-form">
+              <div className="cart-input-conteiner">
+                <p>Mail:</p>
+                <input
+                  className="cart-order-input"
+                  value={cartInput}
+                  type="email"
+                  onChange={handleCartChange}
+                />
+              </div>
+              {cartInput ? (
+                <button className="cart-order-btn" type="submit">
+                  Checkout
+                </button>
+              ) : (
+                <button className="cart-order-btn" type="submit" disabled>
+                  Checkout
+                </button>
+              )}
+            </form>
           </div>
         </div>
       ) : (
@@ -62,7 +110,7 @@ export default function Cart() {
             width={164}
           />
           <h3 className="cart-empty-title">
-            Your basket is <span>empty...</span>
+            Your basket is <Link to="/">empty...</Link>
           </h3>
           <p className="cart-empty-text">
             Go to the main page to select your favorite products and add them to

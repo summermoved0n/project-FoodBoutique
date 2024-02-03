@@ -40,33 +40,47 @@ export default function Products({
   };
 
   return (
-    <div>
-      <ul className="products-list">
-        <ProductsItem
-          removeFromCart={removeFromCart}
-          modalClick={modalClick}
-          products={currentItems}
-          addToCart={addToCart}
-        />
-      </ul>
-      <div className="products-paginate-conteiner">
-        <ReactPaginate
-          breakLabel={<BiDotsHorizontalRounded />}
-          breakLinkClassName="products-paginate-break"
-          nextLabel={<IoIosArrowForward />}
-          onPageChange={handlePageClick}
-          pageRangeDisplayed={1}
-          marginPagesDisplayed={2}
-          pageCount={pageCount}
-          previousLabel={<IoIosArrowBack />}
-          renderOnZeroPageCount={null}
-          containerClassName="products-paginate-list"
-          pageLinkClassName="products-paginate-item"
-          activeLinkClassName="products-paginate-active"
-          previousLinkClassName="products-paginate-previous"
-          nextLinkClassName="products-paginate-next"
-        />
-      </div>
-    </div>
+    <>
+      {products.length !== 0 ? (
+        <div>
+          <ul className="products-list">
+            <ProductsItem
+              removeFromCart={removeFromCart}
+              modalClick={modalClick}
+              products={currentItems}
+              addToCart={addToCart}
+            />
+          </ul>
+          <div className="products-paginate-conteiner">
+            <ReactPaginate
+              breakLabel={<BiDotsHorizontalRounded />}
+              breakLinkClassName="products-paginate-break"
+              nextLabel={<IoIosArrowForward />}
+              onPageChange={handlePageClick}
+              pageRangeDisplayed={1}
+              marginPagesDisplayed={2}
+              pageCount={pageCount}
+              previousLabel={<IoIosArrowBack />}
+              renderOnZeroPageCount={null}
+              containerClassName="products-paginate-list"
+              pageLinkClassName="products-paginate-item"
+              activeLinkClassName="products-paginate-active"
+              previousLinkClassName="products-paginate-previous"
+              nextLinkClassName="products-paginate-next"
+            />
+          </div>
+        </div>
+      ) : (
+        <div className="products-empty-list">
+          <h3 className="products-empty-list-title">
+            Nothing was found for the selected <span>filters...</span>
+          </h3>
+          <p className="products-empty-list-text">
+            Try adjusting your search parameters or browse our range by other
+            criteria to find the perfect product fot you.
+          </p>
+        </div>
+      )}
+    </>
   );
 }
