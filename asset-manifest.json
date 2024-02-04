@@ -1,19 +1,15 @@
 {
   "files": {
-    "main.css": "/project-FoodBoutique/static/css/main.53bf2b26.css",
-    "main.js": "/project-FoodBoutique/static/js/main.8fe76d0f.js",
-    "static/js/256.30b3279c.chunk.js": "/project-FoodBoutique/static/js/256.30b3279c.chunk.js",
-    "static/js/993.36db0659.chunk.js": "/project-FoodBoutique/static/js/993.36db0659.chunk.js",
+    "main.css": "/project-FoodBoutique/static/css/main.480fb883.css",
+    "main.js": "/project-FoodBoutique/static/js/main.e4d71e49.js",
     "static/media/hero-dt.jpg": "/project-FoodBoutique/static/media/hero-dt.66feb69192d4b87c4c3d.jpg",
     "static/media/icons.svg": "/project-FoodBoutique/static/media/icons.c5423a0a34cb90b5e96981c45c3c6f8a.svg",
     "index.html": "/project-FoodBoutique/index.html",
-    "main.53bf2b26.css.map": "/project-FoodBoutique/static/css/main.53bf2b26.css.map",
-    "main.8fe76d0f.js.map": "/project-FoodBoutique/static/js/main.8fe76d0f.js.map",
-    "256.30b3279c.chunk.js.map": "/project-FoodBoutique/static/js/256.30b3279c.chunk.js.map",
-    "993.36db0659.chunk.js.map": "/project-FoodBoutique/static/js/993.36db0659.chunk.js.map"
+    "main.480fb883.css.map": "/project-FoodBoutique/static/css/main.480fb883.css.map",
+    "main.e4d71e49.js.map": "/project-FoodBoutique/static/js/main.e4d71e49.js.map"
   },
   "entrypoints": [
-    "static/css/main.53bf2b26.css",
-    "static/js/main.8fe76d0f.js"
+    "static/css/main.480fb883.css",
+    "static/js/main.e4d71e49.js"
   ]
 }
