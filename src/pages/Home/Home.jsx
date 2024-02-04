@@ -3,12 +3,13 @@ import { Filter } from 'components/Filter/Filter';
 import { Hero } from 'components/Hero/Hero';
 import { Modal } from 'components/Modal/Modal';
 import { PopularProducts } from 'components/PopularProducts/PopularProducts';
-import React, { Suspense, lazy, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useCart } from 'helpers/cartContexts';
 import toast, { Toaster } from 'react-hot-toast';
-// import Products from 'components/Products/Products';
 
-const Products = lazy(() => import('../../components/Products/Products'));
+import Products from 'components/Products/Products';
+
+// const Products = lazy(() => import('../../components/Products/Products'));
 
 export default function Home() {
   const { addCart, setAddCart } = useCart();
@@ -64,16 +65,14 @@ export default function Home() {
           />
         )}
         <div className="home-left-wraper">
-          <Suspense fallback={<div>Loading...</div>}>
-            <Products
-              removeFromCart={removeFromCart}
-              modalClick={onModalClick}
-              addToCart={addToCart}
-              itemsPerPage={9}
-              category={category}
-              keyword={keyword}
-            />
-          </Suspense>
+          <Products
+            removeFromCart={removeFromCart}
+            modalClick={onModalClick}
+            addToCart={addToCart}
+            itemsPerPage={9}
+            category={category}
+            keyword={keyword}
+          />
         </div>
         <div className="home-right-wraper">
           <PopularProducts

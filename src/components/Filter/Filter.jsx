@@ -55,14 +55,9 @@ export const Filter = ({ setCategory, setKeyword, category }) => {
           onChange={handleSelectChange}
           defaultValue="categories"
         >
-          {/* <option
-            value="categories"
-            // disabled="categories"
-            // selected="categories"
-            // hidden="categories"
-          >
+          <option value="categories" hidden="categories">
             Сategories
-          </option> */}
+          </option>
           <FilterItem categories={filter} />
           {category && <option value="">Show All</option>}
         </select>

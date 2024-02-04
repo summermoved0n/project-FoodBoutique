@@ -114,3 +114,10 @@
   line-height: 1.25;
   color: rgba(1, 1, 1, 0.7);
 }
+
+.product-loader {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
