@@ -8,8 +8,6 @@ import { Oval } from 'react-loader-spinner';
 const FoodBoutique = new FoodBoutiqueApi();
 const modalRoot = document.querySelector('#modal-root');
 
-const override = {};
-
 export function Modal({ modalItem, modalClose, addToCart, removeFromCart }) {
   const [modalContent, setModalContent] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
