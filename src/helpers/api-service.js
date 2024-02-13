@@ -49,4 +49,20 @@ export default class FoodBoutiqueApi {
     const data = await response.json();
     return data;
   }
+
+  async postSubscribe(formData) {
+    const url = 'https://food-boutique.b.goit.study/api/subscription';
+    const response = await fetch(url, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify(formData),
+    });
+    if (!response.ok) {
+      return Promise.reject(new Error('Oops, something went wrong! 😥'));
+    }
+    const data = await response.json();
+    return data;
+  }
 }

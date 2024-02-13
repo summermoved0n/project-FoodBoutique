@@ -173,7 +173,7 @@
   line-height: 1.33;
 }
 
-.footer-right-wraper {
+.footer-form {
   display: flex;
   flex-direction: column;
 }
@@ -204,6 +204,10 @@
   line-height: 1.5;
 }
 
+.footer-input:focus {
+  outline: none;
+}
+
 .footer-send-btn {
   width: 336px;
   height: 48px;
@@ -213,6 +217,11 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
+  transition: color 250ms ease;
+}
+
+.footer-send-btn:is(:hover, :focus) {
+  color: #6d8434;
 }
 
 .footer-bottom-wraper {

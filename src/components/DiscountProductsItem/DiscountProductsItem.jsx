@@ -26,7 +26,14 @@ export const DiscountProductsItem = ({
                 <use xlinkHref={`${icons}#icon-discount`}></use>
               </svg>
             )}
-            <img className="discount-image" src={img} alt={name} width={105} />
+            <div className="discount-image">
+              <img
+                // className="discount-image"
+                src={img}
+                alt={name}
+                width={105}
+              />
+            </div>
             <div className="discount-content-conteiner">
               <h3 className="discount-content-text">{name}</h3>
               <div className="discount-content-wraper">

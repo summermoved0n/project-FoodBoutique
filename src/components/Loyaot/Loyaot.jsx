@@ -1,11 +1,42 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { useCart } from 'helpers/cartContexts';
 import icons from '../../images/icons.svg';
 import { HomeLink, CartLink } from '../../helpers/styled-conponents';
+import FoodBoutiqueApi from 'helpers/api-service';
+import toast, { Toaster } from 'react-hot-toast';
+
+const FoodBoutique = new FoodBoutiqueApi();
 
 export function Loyaot() {
   const { addCart } = useCart();
+  const [input, setInput] = useState('');
+
+  const onInputChange = e => {
+    const { value } = e.currentTarget;
+    console.log(value);
+    setInput(value);
+  };
+
+  const footerFormSubmit = e => {
+    e.preventDefault();
+    const submitData = {
+      email: input,
+    };
+    FoodBoutique.postSubscribe(submitData)
+      .then(data => {
+        toast(`${data.message}`, {
+          duration: 8000,
+        });
+        console.log(data.message);
+      })
+      .catch(data => {
+        toast(`${data}`, {
+          duration: 5000,
+        });
+      });
+    setInput('');
+  };
 
   return (
     <>
@@ -44,14 +75,14 @@ export function Loyaot() {
         <div className="conteiner">
           <div className="footer-top-wraper">
             <div className="footer-left-wraper">
-              <a className="footer-food-link" href="../">
+              <NavLink className="footer-food-link" to="/">
                 <svg className="footer-icon-logo">
                   <use xlinkHref={`${icons}#icon-logo`} />
                 </svg>
                 <svg className="footer-food-boutique">
                   <use xlinkHref={`${icons}#icon-food-boutique`} />
                 </svg>
-              </a>
+              </NavLink>
               <ul className="footer-social-list">
                 <li>
                   <a href="https://www.facebook.com/goITclub/">
@@ -86,19 +117,23 @@ export function Loyaot() {
                 adventures.
               </p>
             </div>
-            <div className="footer-right-wraper">
+            <form className="footer-form" onSubmit={footerFormSubmit}>
               <p className="footer-subscribe-text">
                 Subscribe and learn about new products!
               </p>
               <input
                 className="footer-input"
                 type="email"
+                value={input}
+                onChange={onInputChange}
+                required
+                pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
                 placeholder="Email"
               />
-              <button className="footer-send-btn" type="button">
+              <button className="footer-send-btn" type="submit">
                 Send
               </button>
-            </div>
+            </form>
           </div>
           <div className="footer-bottom-wraper">
             <p className="footer-bottom-text">
