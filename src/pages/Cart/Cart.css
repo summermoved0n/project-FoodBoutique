@@ -151,6 +151,10 @@
   margin-right: 16px;
 }
 
+.cart-order-input:focus {
+  border-color: #6d8434;
+}
+
 .cart-order-btn {
   border-radius: 30px;
   padding: 0;

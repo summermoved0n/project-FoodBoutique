@@ -42,7 +42,6 @@ export default function Products({
     setItemOffset(newOffset);
   };
 
-  console.log(products);
   return (
     <>
       {isLoading ? (
