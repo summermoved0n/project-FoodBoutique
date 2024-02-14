@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { useCart } from 'helpers/cartContexts';
 import icons from '../../images/icons.svg';
 import { HomeLink, CartLink } from '../../helpers/styled-conponents';
 import FoodBoutiqueApi from 'helpers/api-service';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 const FoodBoutique = new FoodBoutiqueApi();
 
