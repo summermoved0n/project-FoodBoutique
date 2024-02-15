@@ -4,7 +4,13 @@ import { PopularProductsItem } from 'components/PopularProductsItem/PopularProdu
 
 const FoodBoutique = new FoodBoutiqueApi();
 
-export function PopularProducts({ modalClick, addToCart, removeFromCart }) {
+export function PopularProducts({
+  modalClick,
+  addToCart,
+  removeFromCart,
+  addToOrder,
+  removeFromOrder,
+}) {
   const [popular, setPopular] = useState([]);
   useEffect(() => {
     FoodBoutique.getFetchPopular().then(data => {
@@ -16,6 +22,8 @@ export function PopularProducts({ modalClick, addToCart, removeFromCart }) {
       <h2 className="popular-products-title">Popular products</h2>
       <ul className="popular-products-list">
         <PopularProductsItem
+          addToOrder={addToOrder}
+          removeFromOrder={removeFromOrder}
           removeFromCart={removeFromCart}
           modalClick={modalClick}
           products={popular}

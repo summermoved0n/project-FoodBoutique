@@ -4,9 +4,13 @@ import { CartItem } from 'components/CartItem/CartItem';
 import icons from '../../images/icons.svg';
 import { Link } from 'react-router-dom';
 import { CartModal } from 'components/CartModal/CartModal';
+import FoodBoutiqueApi from 'helpers/api-service';
+
+const FoodBoutique = new FoodBoutiqueApi();
 
 export default function Cart() {
   const { addCart, setAddCart } = useCart();
+  const { order, setOrder } = useCart();
   const [cartInput, setCartInput] = useState('');
   const [cartShowModal, setCartShowModal] = useState(false);
 
@@ -20,8 +24,10 @@ export default function Cart() {
   };
 
   const totalPrice = () => {
+    const orderAmount = order.map(item => item.amount);
     const cartPrice = addCart.map(item => item.price);
-    const total = cartPrice.reduce((acc, value) => acc + value, 0);
+    const result = cartPrice.map((item, index) => item * orderAmount[index]);
+    const total = result.reduce((acc, value) => acc + value, 0);
     return total.toFixed(2);
   };
 
@@ -34,11 +40,16 @@ export default function Cart() {
     e.preventDefault();
     setCartInput('');
     setCartShowModal(true);
-    setTimeout(() => setAddCart([]), 1000);
+    const orderData = {
+      email: cartInput,
+      products: [...order],
+    };
+    FoodBoutique.postOrder(orderData);
+    setAddCart([]);
+    setOrder([]);
   };
 
   const closeModal = () => {
-    console.log('hello');
     setCartShowModal(false);
   };
 
@@ -68,7 +79,12 @@ export default function Cart() {
             </button>
             <ul className="cart-list">
               {addCart && (
-                <CartItem products={addCart} handleDelete={handleDelete} />
+                <CartItem
+                  products={addCart}
+                  handleDelete={handleDelete}
+                  order={order}
+                  setOrder={setOrder}
+                />
               )}
             </ul>
           </div>

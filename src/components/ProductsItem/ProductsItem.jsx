@@ -4,6 +4,8 @@ import { AddedtoCart } from 'helpers/services';
 import { FaCheck } from 'react-icons/fa6';
 
 export const ProductsItem = ({
+  removeFromOrder,
+  addToOrder,
   products,
   modalClick,
   addToCart,
@@ -64,6 +66,7 @@ export const ProductsItem = ({
                   onClick={e => {
                     e.stopPropagation();
                     removeFromCart(_id, name);
+                    removeFromOrder(_id);
                   }}
                 >
                   <FaCheck size={18} color="#E8E8E2" />
@@ -82,6 +85,10 @@ export const ProductsItem = ({
                       size,
                       price,
                       _id,
+                    });
+                    addToOrder({
+                      productId: _id,
+                      amount: 1,
                     });
                   }}
                 >

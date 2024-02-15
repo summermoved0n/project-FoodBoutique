@@ -65,4 +65,20 @@ export default class FoodBoutiqueApi {
     const data = await response.json();
     return data;
   }
+
+  async postOrder(orderData) {
+    const url = 'https://food-boutique.b.goit.study/api/orders';
+    const response = await fetch(url, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify(orderData),
+    });
+    if (!response.ok) {
+      return Promise.reject(new Error('Oops, something went wrong! 😥'));
+    }
+    const data = await response.json();
+    return data;
+  }
 }

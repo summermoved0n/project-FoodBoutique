@@ -8,6 +8,8 @@ export const DiscountProductsItem = ({
   modalClick,
   addToCart,
   removeFromCart,
+  addToOrder,
+  removeFromOrder,
 }) => {
   return (
     <>
@@ -45,6 +47,7 @@ export const DiscountProductsItem = ({
                     onClick={e => {
                       e.stopPropagation();
                       removeFromCart(_id, name);
+                      removeFromOrder(_id);
                     }}
                   >
                     <FaCheck size={18} color="#E8E8E2" />
@@ -63,6 +66,10 @@ export const DiscountProductsItem = ({
                         size,
                         price,
                         _id,
+                      });
+                      addToOrder({
+                        productId: _id,
+                        amount: 1,
                       });
                     }}
                   >

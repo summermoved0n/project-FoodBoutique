@@ -76,3 +76,13 @@
   font-size: 20px;
   line-height: 1.2;
 }
+
+.cart-toggle-counter {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-counter-btns {
+  display: flex;
+  gap: 10px;
+}

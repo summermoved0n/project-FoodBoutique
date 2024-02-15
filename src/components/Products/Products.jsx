@@ -15,6 +15,8 @@ export default function Products({
   addToCart,
   keyword,
   category,
+  addToOrder,
+  removeFromOrder,
 }) {
   const [products, setProducts] = useState([]);
   const [itemOffset, setItemOffset] = useState(0);
@@ -50,6 +52,8 @@ export default function Products({
             <div>
               <ul className="products-list">
                 <ProductsItem
+                  removeFromOrder={removeFromOrder}
+                  addToOrder={addToOrder}
                   removeFromCart={removeFromCart}
                   modalClick={modalClick}
                   products={currentItems}

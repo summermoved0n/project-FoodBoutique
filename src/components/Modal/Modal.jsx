@@ -8,7 +8,14 @@ import { Oval } from 'react-loader-spinner';
 const FoodBoutique = new FoodBoutiqueApi();
 const modalRoot = document.querySelector('#modal-root');
 
-export function Modal({ modalItem, modalClose, addToCart, removeFromCart }) {
+export function Modal({
+  modalItem,
+  modalClose,
+  addToCart,
+  removeFromCart,
+  addToOrder,
+  removeFromOrder,
+}) {
   const [modalContent, setModalContent] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -92,6 +99,7 @@ export function Modal({ modalItem, modalClose, addToCart, removeFromCart }) {
                 onClick={e => {
                   e.stopPropagation();
                   removeFromCart(_id, name);
+                  removeFromOrder(_id);
                 }}
               >
                 Remove from
@@ -113,6 +121,10 @@ export function Modal({ modalItem, modalClose, addToCart, removeFromCart }) {
                     size,
                     price,
                     _id,
+                  });
+                  addToOrder({
+                    productId: _id,
+                    amount: 1,
                   });
                 }}
               >

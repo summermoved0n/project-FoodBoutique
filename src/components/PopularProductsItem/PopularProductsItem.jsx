@@ -8,6 +8,8 @@ export const PopularProductsItem = ({
   modalClick,
   addToCart,
   removeFromCart,
+  addToOrder,
+  removeFromOrder,
 }) => {
   return (
     <>
@@ -31,7 +33,6 @@ export const PopularProductsItem = ({
             }}
           >
             <img className="popular-image" src={img} alt={name} width={56} />
-
             <div className="popular-content-conteiner">
               <h3 className="popular-item-title">{name}</h3>
               <ul className="popular-content-list">
@@ -52,6 +53,7 @@ export const PopularProductsItem = ({
                   onClick={e => {
                     e.stopPropagation();
                     removeFromCart(_id, name);
+                    removeFromOrder(_id);
                   }}
                 >
                   <FaCheck
@@ -74,6 +76,10 @@ export const PopularProductsItem = ({
                       size,
                       price,
                       _id,
+                    });
+                    addToOrder({
+                      productId: _id,
+                      amount: 1,
                     });
                   }}
                 >

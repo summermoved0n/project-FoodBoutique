@@ -9,10 +9,9 @@ import toast, { Toaster } from 'react-hot-toast';
 
 import Products from 'components/Products/Products';
 
-// const Products = lazy(() => import('../../components/Products/Products'));
-
 export default function Home() {
   const { addCart, setAddCart } = useCart();
+  const { order, setOrder } = useCart();
   const [modalItem, setModalItem] = useState('');
   const [isModal, setIsModal] = useState(false);
   const [category, setCategory] = useState('');
@@ -20,7 +19,8 @@ export default function Home() {
 
   useEffect(() => {
     window.localStorage.setItem('products', JSON.stringify(addCart));
-  }, [addCart]);
+    window.localStorage.setItem('order', JSON.stringify(order));
+  }, [addCart, order]);
 
   const onModalClick = id => {
     setModalItem(id);
@@ -44,6 +44,15 @@ export default function Home() {
     toast.error(`'${name}' has been removed from the cart!`);
   };
 
+  const addToOrder = data => {
+    setOrder(prevState => [...prevState, data]);
+  };
+
+  const removeFromOrder = id => {
+    const orderDeleteProduct = order.filter(item => item.productId !== id);
+    setOrder(orderDeleteProduct);
+  };
+
   return (
     <div className="home-conteiner">
       <div>
@@ -58,6 +67,8 @@ export default function Home() {
       <section className="home-section">
         {isModal && (
           <Modal
+            addToOrder={addToOrder}
+            removeFromOrder={removeFromOrder}
             modalClose={modalClose}
             modalItem={modalItem}
             addToCart={addToCart}
@@ -66,6 +77,8 @@ export default function Home() {
         )}
         <div className="home-left-wraper">
           <Products
+            addToOrder={addToOrder}
+            removeFromOrder={removeFromOrder}
             removeFromCart={removeFromCart}
             modalClick={onModalClick}
             addToCart={addToCart}
@@ -76,11 +89,15 @@ export default function Home() {
         </div>
         <div className="home-right-wraper">
           <PopularProducts
+            addToOrder={addToOrder}
+            removeFromOrder={removeFromOrder}
             modalClick={onModalClick}
             addToCart={addToCart}
             removeFromCart={removeFromCart}
           />
           <DiscountProducts
+            addToOrder={addToOrder}
+            removeFromOrder={removeFromOrder}
             modalClick={onModalClick}
             addToCart={addToCart}
             removeFromCart={removeFromCart}

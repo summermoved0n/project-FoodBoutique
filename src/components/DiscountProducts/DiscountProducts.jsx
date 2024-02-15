@@ -8,6 +8,8 @@ export default function DiscountProducts({
   modalClick,
   addToCart,
   removeFromCart,
+  addToOrder,
+  removeFromOrder,
 }) {
   const [discount, setDiscount] = useState([]);
 
@@ -21,6 +23,8 @@ export default function DiscountProducts({
       <h2 className="discount-products-title">Discount products</h2>
       <ul className="discount-products-list">
         <DiscountProductsItem
+          addToOrder={addToOrder}
+          removeFromOrder={removeFromOrder}
           removeFromCart={removeFromCart}
           modalClick={modalClick}
           products={discount}

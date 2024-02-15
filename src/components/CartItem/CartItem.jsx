@@ -1,7 +1,43 @@
 import React from 'react';
 import icons from '../../images/icons.svg';
 
-export const CartItem = ({ products, handleDelete }) => {
+export const CartItem = ({ products, handleDelete, order, setOrder }) => {
+  const productCounter = id => {
+    const counter = order.find(item => {
+      if (item.productId === id) {
+        return true;
+      }
+      return false;
+    });
+    if (counter) {
+      return counter.amount;
+    } else {
+      return 1;
+    }
+  };
+
+  const handleDecrementClick = id => {
+    setOrder(prevState => {
+      return prevState.map(item => {
+        if (item.productId === id && item.amount > 1) {
+          return { ...item, amount: item.amount - 1 };
+        }
+        return item;
+      });
+    });
+  };
+
+  const handleIncrementClick = id => {
+    setOrder(prevState => {
+      return prevState.map(item => {
+        if (item.productId === id) {
+          return { ...item, amount: item.amount + 1 };
+        }
+        return item;
+      });
+    });
+  };
+
   return (
     <>
       {products.map(
@@ -29,7 +65,24 @@ export const CartItem = ({ products, handleDelete }) => {
                   Size: <span>{size}</span>
                 </span>
               </div>
-              <p className="cart-item-price">${price}</p>
+              <div className="cart-toggle-counter">
+                <p className="cart-item-price">${price}</p>
+                <div className="cart-counter-btns">
+                  <button
+                    type="button"
+                    onClick={() => handleDecrementClick(_id)}
+                  >
+                    -
+                  </button>
+                  <p>{productCounter(_id)}</p>
+                  <button
+                    type="button"
+                    onClick={() => handleIncrementClick(_id)}
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
             </div>
           </li>
         )
