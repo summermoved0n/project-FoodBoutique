@@ -6,8 +6,10 @@ import { PopularProducts } from 'components/PopularProducts/PopularProducts';
 import React, { useEffect, useState } from 'react';
 import { useCart } from 'helpers/cartContexts';
 import toast, { Toaster } from 'react-hot-toast';
-
 import Products from 'components/Products/Products';
+
+const modalRoot = document.querySelector('#modal-root');
+const fixBlocks = document.querySelectorAll('.fix-block');
 
 export default function Home() {
   const { addCart, setAddCart } = useCart();
@@ -23,12 +25,21 @@ export default function Home() {
   }, [addCart, order]);
 
   const onModalClick = id => {
+    const paddingOffset = window.innerWidth - modalRoot.offsetWidth + 'px';
+    document.body.style.paddingRight = paddingOffset;
+    fixBlocks.forEach(el => {
+      el.style.paddingRight = paddingOffset;
+    });
     setModalItem(id);
     setIsModal(true);
     document.body.style.overflow = 'hidden';
   };
 
   const modalClose = () => {
+    document.body.style.paddingRight = '0px';
+    fixBlocks.forEach(el => {
+      el.style.paddingRight = '0px';
+    });
     setIsModal(false);
     document.body.style.overflow = 'visible';
   };

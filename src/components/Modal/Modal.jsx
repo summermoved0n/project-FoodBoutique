@@ -55,7 +55,7 @@ export function Modal({
   } = modalContent;
 
   return createPortal(
-    <div className="modal-conteiner" onClick={onBackDropClick}>
+    <div className="modal-conteiner fix-block" onClick={onBackDropClick}>
       {isLoading ? (
         <div className="modal-content">
           <div className="modal-top-wraper">
