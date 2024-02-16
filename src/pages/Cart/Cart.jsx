@@ -16,11 +16,14 @@ export default function Cart() {
 
   const onDeleteAll = () => {
     setAddCart([]);
+    setOrder([]);
   };
 
   const handleDelete = id => {
     const newCart = addCart.filter(item => item._id !== id);
+    const newOrder = order.filter(item => item.productId !== id);
     setAddCart(newCart);
+    setOrder(newOrder);
   };
 
   const totalPrice = () => {

@@ -1,5 +1,7 @@
 import React from 'react';
 import icons from '../../images/icons.svg';
+import { GoPlus } from 'react-icons/go';
+import { PiMinus } from 'react-icons/pi';
 
 export const CartItem = ({ products, handleDelete, order, setOrder }) => {
   const productCounter = id => {
@@ -69,17 +71,19 @@ export const CartItem = ({ products, handleDelete, order, setOrder }) => {
                 <p className="cart-item-price">${price}</p>
                 <div className="cart-counter-btns">
                   <button
+                    className="cart-quantity-btn"
                     type="button"
                     onClick={() => handleDecrementClick(_id)}
                   >
-                    -
+                    <PiMinus size={18} />
                   </button>
-                  <p>{productCounter(_id)}</p>
+                  <p className="cart-quantity-product">{productCounter(_id)}</p>
                   <button
+                    className="cart-quantity-btn"
                     type="button"
                     onClick={() => handleIncrementClick(_id)}
                   >
-                    +
+                    <GoPlus size={18} />
                   </button>
                 </div>
               </div>

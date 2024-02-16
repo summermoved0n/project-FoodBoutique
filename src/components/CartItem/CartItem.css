@@ -72,6 +72,8 @@
 }
 
 .cart-item-price {
+  display: flex;
+  align-items: flex-end;
   font-weight: 500;
   font-size: 20px;
   line-height: 1.2;
@@ -79,10 +81,34 @@
 
 .cart-toggle-counter {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  position: relative;
 }
 
 .cart-counter-btns {
   display: flex;
-  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid rgba(1, 1, 1, 0.1);
+  border-radius: 100px;
+  width: 96px;
+  height: 34px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translateX(110%);
+}
+
+.cart-quantity-btn {
+  display: flex;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
+.cart-quantity-product {
+  font-size: 20px;
+  line-height: 1.2;
+  color: #010101;
 }
