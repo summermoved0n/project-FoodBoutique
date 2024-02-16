@@ -37,7 +37,7 @@ export const PopularProductsItem = ({
               <h3 className="popular-item-title">{name}</h3>
               <ul className="popular-content-list">
                 <li className="popular-content-text">
-                  <span>Category:</span> {category}
+                  <span>Category:</span> {category.replace(/_/g, ' ')}
                 </li>
                 <li className="popular-content-text">
                   <span>Size:</span> {size}

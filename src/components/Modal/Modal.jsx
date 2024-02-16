@@ -76,7 +76,7 @@ export function Modal({
               <ul className="modal-list">
                 <li className="modal-item">
                   <span>Category: </span>
-                  {category}
+                  {category.replace(/_/g, ' ')}
                 </li>
                 <li className="modal-item">
                   <span>Size: </span>

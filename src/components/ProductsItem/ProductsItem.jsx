@@ -48,7 +48,7 @@ export const ProductsItem = ({
             <h3 className="products-title">{name}</h3>
             <ul className="products-text-list">
               <li className="products-text-item">
-                <span>Category:</span> {category}
+                <span>Category:</span> {category.replace(/_/g, ' ')}
               </li>
               <li className="products-text-item">
                 <span>Size:</span> {size}

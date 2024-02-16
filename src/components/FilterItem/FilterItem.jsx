@@ -10,7 +10,7 @@ export const FilterItem = ({ categories }) => {
     <>
       {newCategories.map(category => (
         <option key={category} value={category}>
-          {category}
+          {category.replace(/_/g, ' ').replace(/%26/g, '/')}
         </option>
       ))}
     </>

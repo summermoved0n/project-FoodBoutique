@@ -9,6 +9,10 @@
   margin-bottom: 8px;
 }
 
+.filter-form {
+  display: flex;
+}
+
 .filter-input-wraper {
   position: relative;
   margin-right: 8px;
@@ -54,9 +58,13 @@
   height: 20px;
 }
 
+.filter-select-wraper {
+  position: relative;
+}
+
 .filter-select {
-  padding-left: 20px;
-  width: 189px;
+  padding: 0 20px;
+  width: 200px;
   height: 52px;
   border-radius: 30px;
   border: 1px solid rgba(1, 1, 1, 0.3);
@@ -64,5 +72,20 @@
   color: #010101;
   font-size: 18px;
   line-height: 1.33;
-  /** custom styles */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.filter-select:focus {
+  border-color: #6d8434;
+  outline: none;
+}
+
+.filter-icon-arrows {
+  position: absolute;
+  pointer-events: none;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
 }

@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react';
 import FoodBoutiqueApi from 'helpers/api-service';
 import { FilterItem } from 'components/FilterItem/FilterItem';
 import icons from '../../images/icons.svg';
+import { IoIosArrowDown } from 'react-icons/io';
+import { IoIosArrowUp } from 'react-icons/io';
 
 const FoodBoutique = new FoodBoutiqueApi();
 
 export const Filter = ({ setCategory, setKeyword, category }) => {
   const [filter, setFilter] = useState([]);
   const [input, setInput] = useState('');
+  const [onSelectClick, setOnSelectClick] = useState(false);
 
   useEffect(() => {
     FoodBoutique.getFetchCategories().then(data => {
@@ -33,7 +36,7 @@ export const Filter = ({ setCategory, setKeyword, category }) => {
   return (
     <section className="filter-section">
       <p className="filter-text">Filters:</p>
-      <form onSubmit={handleSubmit}>
+      <form className="filter-form" onSubmit={handleSubmit}>
         <span className="filter-input-wraper">
           <input
             className="filter-input"
@@ -48,19 +51,28 @@ export const Filter = ({ setCategory, setKeyword, category }) => {
             </svg>
           </button>
         </span>
-        <select
-          className="filter-select"
-          name="filter"
-          id=""
-          onChange={handleSelectChange}
-          defaultValue="categories"
-        >
-          <option value="categories" hidden="categories">
-            Сategories
-          </option>
-          <FilterItem categories={filter} />
-          {category && <option value="">Show All</option>}
-        </select>
+        <div className="filter-select-wraper">
+          <select
+            onFocus={() => setOnSelectClick(true)}
+            onBlur={() => setOnSelectClick(false)}
+            className="filter-select"
+            name="filter"
+            id=""
+            onChange={handleSelectChange}
+            defaultValue="categories"
+          >
+            <option value="categories" hidden>
+              Сategories
+            </option>
+            <FilterItem categories={filter} />
+            {category && <option value="">Show All</option>}
+          </select>
+          {onSelectClick ? (
+            <IoIosArrowUp className="filter-icon-arrows" size={20} />
+          ) : (
+            <IoIosArrowDown className="filter-icon-arrows" size={20} />
+          )}
+        </div>
       </form>
     </section>
   );
