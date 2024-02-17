@@ -40,7 +40,6 @@ export default function Products({
 
   const handlePageClick = event => {
     const newOffset = (event.selected * itemsPerPage) % products.length;
-    console.log(`Items from ${event.selected} to ${newOffset}`);
     setItemOffset(newOffset);
   };
 

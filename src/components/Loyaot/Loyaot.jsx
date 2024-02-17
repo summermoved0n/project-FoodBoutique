@@ -5,6 +5,7 @@ import icons from '../../images/icons.svg';
 import { HomeLink, CartLink } from '../../helpers/styled-conponents';
 import FoodBoutiqueApi from 'helpers/api-service';
 import toast from 'react-hot-toast';
+import { ScrollUp } from 'components/ScrollUp/ScrollUp';
 
 const FoodBoutique = new FoodBoutiqueApi();
 
@@ -157,6 +158,7 @@ export function Loyaot() {
           </div>
         </div>
       </footer>
+      <ScrollUp />
     </>
   );
 }
