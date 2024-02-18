@@ -18,6 +18,8 @@ export default function Home() {
   const [isModal, setIsModal] = useState(false);
   const [category, setCategory] = useState('');
   const [keyword, setKeyword] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectByQuery, setSelectByQuery] = useState(false);
 
   useEffect(() => {
     window.localStorage.setItem('products', JSON.stringify(addCart));
@@ -74,6 +76,8 @@ export default function Home() {
         setCategory={setCategory}
         setKeyword={setKeyword}
         category={category}
+        setSearchQuery={setSearchQuery}
+        setSelectByQuery={setSelectByQuery}
       />
       <section className="home-section">
         {isModal && (
@@ -96,6 +100,8 @@ export default function Home() {
             itemsPerPage={9}
             category={category}
             keyword={keyword}
+            searchQuery={searchQuery}
+            selectByQuery={selectByQuery}
           />
         </div>
         <div className="home-right-wraper">

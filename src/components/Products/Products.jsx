@@ -17,13 +17,20 @@ export default function Products({
   category,
   addToOrder,
   removeFromOrder,
+  searchQuery,
+  selectByQuery,
 }) {
   const [products, setProducts] = useState([]);
   const [itemOffset, setItemOffset] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    FoodBoutique.getFetchProduct(keyword, category).then(data => {
+    FoodBoutique.getFetchProduct(
+      keyword,
+      category,
+      searchQuery,
+      selectByQuery
+    ).then(data => {
       const { results } = data;
       setProducts(results);
       window.localStorage.setItem(
@@ -32,7 +39,7 @@ export default function Products({
       );
       setIsLoading(true);
     });
-  }, [category, keyword]);
+  }, [category, keyword, searchQuery, selectByQuery]);
 
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = products.slice(itemOffset, endOffset);

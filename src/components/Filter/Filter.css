@@ -11,11 +11,11 @@
 
 .filter-form {
   display: flex;
+  gap: 8px;
 }
 
 .filter-input-wraper {
   position: relative;
-  margin-right: 8px;
 }
 
 .filter-input {
@@ -62,27 +62,19 @@
   position: relative;
 }
 
-.filter-select {
-  padding: 0 20px;
-  width: 200px;
-  height: 52px;
-  border-radius: 30px;
-  border: 1px solid rgba(1, 1, 1, 0.3);
-  background-color: transparent;
-  color: #010101;
-  font-size: 18px;
-  line-height: 1.33;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-.filter-select:focus {
-  border-color: #6d8434;
-  outline: none;
-}
-
 .filter-icon-arrows {
+  position: absolute;
+  pointer-events: none;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+.filter-select-byquery-wraper {
+  position: relative;
+}
+
+.filter-icon-arrows-byquery {
   position: absolute;
   pointer-events: none;
   top: 50%;

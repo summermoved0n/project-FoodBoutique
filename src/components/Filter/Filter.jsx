@@ -1,17 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import FoodBoutiqueApi from 'helpers/api-service';
-// import { FilterItem } from 'components/FilterItem/FilterItem';
 import icons from '../../images/icons.svg';
 import { IoIosArrowDown } from 'react-icons/io';
 import { IoIosArrowUp } from 'react-icons/io';
 import { Selector } from 'components/Selector/Selector';
+import { SelectByQuery } from 'components/SelectByQuery/SelectByQuery';
 
 const FoodBoutique = new FoodBoutiqueApi();
 
-export const Filter = ({ setCategory, setKeyword, category }) => {
+export const Filter = ({
+  setCategory,
+  setKeyword,
+  category,
+  setSearchQuery,
+  setSelectByQuery,
+}) => {
   const [filter, setFilter] = useState([]);
   const [input, setInput] = useState('');
   const [isActive, setIsActive] = useState(false);
+  const [isActiveByQuery, setIsActiveByQuery] = useState(false);
 
   useEffect(() => {
     FoodBoutique.getFetchCategories().then(data => {
@@ -59,6 +66,19 @@ export const Filter = ({ setCategory, setKeyword, category }) => {
             <IoIosArrowUp className="filter-icon-arrows" size={20} />
           ) : (
             <IoIosArrowDown className="filter-icon-arrows" size={20} />
+          )}
+        </div>
+        <div className="filter-select-byquery-wraper">
+          <SelectByQuery
+            isActiveByQuery={isActiveByQuery}
+            setIsActiveByQuery={setIsActiveByQuery}
+            setSearchQuery={setSearchQuery}
+            setSelectByQuery={setSelectByQuery}
+          />
+          {isActiveByQuery ? (
+            <IoIosArrowUp className="filter-icon-arrows-byquery" size={20} />
+          ) : (
+            <IoIosArrowDown className="filter-icon-arrows-byquery" size={20} />
           )}
         </div>
       </form>

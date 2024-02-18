@@ -1,6 +1,6 @@
 export default class FoodBoutiqueApi {
-  async getFetchProduct(keyword, category) {
-    const url = `https://food-boutique.b.goit.study/api/products?keyword=${keyword}&category=${category}&page=1&limit=540`;
+  async getFetchProduct(keyword, category, searchQuery, selectByQuery) {
+    const url = `https://food-boutique.b.goit.study/api/products?keyword=${keyword}&category=${category}&${searchQuery}=${selectByQuery}&page=1&limit=540`;
     const response = await fetch(url);
     if (!response.ok) {
       return Promise.reject(new Error('Oops, something went wrong! 😥'));
