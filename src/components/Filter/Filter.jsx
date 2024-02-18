@@ -14,6 +14,8 @@ export const Filter = ({
   category,
   setSearchQuery,
   setSelectByQuery,
+  selectText,
+  setSelectText,
 }) => {
   const [filter, setFilter] = useState([]);
   const [input, setInput] = useState('');
@@ -74,6 +76,8 @@ export const Filter = ({
             setIsActiveByQuery={setIsActiveByQuery}
             setSearchQuery={setSearchQuery}
             setSelectByQuery={setSelectByQuery}
+            selectText={selectText}
+            setSelectText={setSelectText}
           />
           {isActiveByQuery ? (
             <IoIosArrowUp className="filter-icon-arrows-byquery" size={20} />

@@ -6,12 +6,18 @@ import { HomeLink, CartLink } from '../../helpers/styled-conponents';
 import FoodBoutiqueApi from 'helpers/api-service';
 import toast from 'react-hot-toast';
 import { ScrollUp } from 'components/ScrollUp/ScrollUp';
+import { PrivacyPolicy } from 'components/PrivacyPolicy/PrivacyPolicy';
+import { TermsOfService } from 'components/TermsOfService/TermsOfService';
 
 const FoodBoutique = new FoodBoutiqueApi();
+const modalRoot = document.querySelector('#modal-root');
+const fixBlocks = document.querySelectorAll('.fix-block');
 
 export function Loyaot() {
   const { addCart } = useCart();
   const [input, setInput] = useState('');
+  const [privacyPolicy, setPrivacyPolicy] = useState(false);
+  const [termsOfService, setTermsOfService] = useState(false);
 
   const onInputChange = e => {
     const { value } = e.currentTarget;
@@ -37,6 +43,44 @@ export function Loyaot() {
         });
       });
     setInput('');
+  };
+
+  const onPrivacyPolicyClickOpen = () => {
+    const paddingOffset = window.innerWidth - modalRoot.offsetWidth + 'px';
+    document.body.style.paddingRight = paddingOffset;
+    fixBlocks.forEach(el => {
+      el.style.paddingRight = paddingOffset;
+    });
+    setPrivacyPolicy(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const onPrivacyPolicyClickClose = () => {
+    document.body.style.paddingRight = '0px';
+    fixBlocks.forEach(el => {
+      el.style.paddingRight = '0px';
+    });
+    setPrivacyPolicy(false);
+    document.body.style.overflow = 'visible';
+  };
+
+  const onTermsOfServiceClickOpen = () => {
+    const paddingOffset = window.innerWidth - modalRoot.offsetWidth + 'px';
+    document.body.style.paddingRight = paddingOffset;
+    fixBlocks.forEach(el => {
+      el.style.paddingRight = paddingOffset;
+    });
+    setTermsOfService(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const onTermsOfServiceClickClose = () => {
+    document.body.style.paddingRight = '0px';
+    fixBlocks.forEach(el => {
+      el.style.paddingRight = '0px';
+    });
+    setTermsOfService(false);
+    document.body.style.overflow = 'visible';
   };
 
   return (
@@ -142,7 +186,11 @@ export function Loyaot() {
             </p>
             <ul className="footer-bottom-list">
               <li>
-                <button className="footer-bottom-btn" type="button">
+                <button
+                  className="footer-bottom-btn"
+                  type="button"
+                  onClick={onPrivacyPolicyClickOpen}
+                >
                   Privacy Policy
                 </button>
               </li>
@@ -150,7 +198,11 @@ export function Loyaot() {
                 <p className="footer-bottom-slash">/</p>
               </li>
               <li>
-                <button className="footer-bottom-btn" type="button">
+                <button
+                  className="footer-bottom-btn"
+                  type="button"
+                  onClick={onTermsOfServiceClickOpen}
+                >
                   Terms of Service
                 </button>
               </li>
@@ -159,6 +211,14 @@ export function Loyaot() {
         </div>
       </footer>
       <ScrollUp />
+      {privacyPolicy && (
+        <PrivacyPolicy onPrivacyPolicyClickClose={onPrivacyPolicyClickClose} />
+      )}
+      {termsOfService && (
+        <TermsOfService
+          onTermsOfServiceClickClose={onTermsOfServiceClickClose}
+        />
+      )}
     </>
   );
 }

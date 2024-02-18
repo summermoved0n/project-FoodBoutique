@@ -20,6 +20,7 @@ export default function Home() {
   const [keyword, setKeyword] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectByQuery, setSelectByQuery] = useState(false);
+  const [selectText, setSelectText] = useState('');
 
   useEffect(() => {
     window.localStorage.setItem('products', JSON.stringify(addCart));
@@ -78,6 +79,8 @@ export default function Home() {
         category={category}
         setSearchQuery={setSearchQuery}
         setSelectByQuery={setSelectByQuery}
+        selectText={selectText}
+        setSelectText={setSelectText}
       />
       <section className="home-section">
         {isModal && (
