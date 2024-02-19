@@ -75,7 +75,7 @@ export const CartItem = ({ products, handleDelete, order, setOrder }) => {
                     type="button"
                     onClick={() => handleDecrementClick(_id)}
                   >
-                    <PiMinus size={18} />
+                    <PiMinus size={15} />
                   </button>
                   <p className="cart-quantity-product">{productCounter(_id)}</p>
                   <button
