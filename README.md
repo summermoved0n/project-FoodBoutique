@@ -1,113 +1,178 @@
-# React homework template
+# Food Boutique
 
-Этот проект был создан при помощи
-[Create React App](https://github.com/facebook/create-react-app). Для знакомства
-и настройки дополнительных возможностей
-[обратись к документации](https://facebook.github.io/create-react-app/docs/getting-started).
+Food Boutique is a responsive React e-commerce application for browsing grocery products, filtering the catalog, managing a shopping cart, and placing a demo order. The project focuses on a clean product discovery flow, cart persistence, API-driven content, and a polished storefront experience suitable for a frontend portfolio.
 
-## Создание репозитория по шаблону
+## Live Demo
 
-Используй этот репозиторий организации GoIT как шаблон для создания репозитория
-своего проекта. Для этого нажми на кнопку `«Use this template»` и выбери опцию
-`«Create a new repository»`, как показано на изображении.
+[Live demo link](https://your-username.github.io/project-FoodBoutique/)
 
-![Creating repo from a template step 1](./assets/template-step-1.png)
+## GitHub Repository
 
-На следующем шаге откроется страница создания нового репозитория. Заполни поле
-его имени, убедись что репозиторий публичный, после чего нажми кнопку
-`«Create repository from template»`.
+[GitHub repository link](https://github.com/your-username/project-FoodBoutique)
 
-![Creating repo from a template step 2](./assets/template-step-2.png)
+## Main Features
 
-После того как репозиторий будет создан, необходимо перейти в настройки
-созданного репозитория на вкладку `Settings` > `Actions` > `General` как
-показано на изображении.
+- Product catalog loaded from the Food Boutique API
+- Search by keyword and category
+- Sorting/filtering by alphabet, price, and popularity
+- Product details modal with add/remove cart actions
+- Popular products and discounted products sections
+- Persistent cart using `localStorage`
+- Cart quantity controls and total price calculation
+- Email-based checkout form with order success modal
+- Newsletter subscription form
+- Privacy Policy and Terms of Service modals
+- GitHub Pages deployment configuration
 
-![Settings GitHub Actions permissions step 1](./assets/gh-actions-perm-1.png)
+## Tech Stack
 
-Проскролив страницу до самого конца, в секции `«Workflow permissions»` выбери
-опцию `«Read and write permissions»` и поставь галочку в чекбоксе. Это
-необходимо для автоматизации процесса деплоя проекта.
+- React 18
+- React Router DOM
+- Create React App / React Scripts
+- JavaScript
+- CSS
+- Styled Components
+- Material UI dependencies
+- React Hot Toast
+- React Paginate
+- React Icons
+- Food Boutique REST API
 
-![Settings GitHub Actions permissions step 2](./assets/gh-actions-perm-2.png)
+## Screenshots
 
-Теперь у тебя есть личный репозиторий проекта, со структурой файлов и папок
-репозитория-шаблона. Далее работай с ним как с любым другим личным репозиторием,
-клонируй его себе на компьютер, пиши код, делай коммиты и отправляй их на
-GitHub.
+Add screenshots before sharing this project with recruiters:
 
-## Подготовка к работе
+- Home page / hero and product catalog
+- Product details modal
+- Cart page
+- Mobile layout
 
-1. Убедись что на компьютере установлена LTS-версия Node.js.
-   [Скачай и установи](https://nodejs.org/en/) её если необходимо.
-2. Установи базовые зависимости проекта командой `npm install`.
-3. Запусти режим разработки, выполнив команду `npm start`.
-4. Перейди в браузере по адресу [http://localhost:3000](http://localhost:3000).
-   Эта страница будет автоматически перезагружаться после сохранения изменений в
-   файлах проекта.
+Example:
 
-## Деплой
-
-Продакшн версия проекта будет автоматически проходить линтинг, собираться и
-деплоиться на GitHub Pages, в ветку `gh-pages`, каждый раз когда обновляется
-ветка `main`. Например, после прямого пуша или принятого пул-реквеста. Для этого
-необходимо в файле `package.json` отредактировать поле `homepage`, заменив
-`your_username` и `your_repo_name` на свои, и отправить изменения на GitHub.
-
-```json
-"homepage": "https://your_username.github.io/your_repo_name/"
+```md
+![Food Boutique home page](./assets/screenshots/home.png)
 ```
 
-Далее необходимо зайти в настройки GitHub-репозитория (`Settings` > `Pages`) и
-выставить раздачу продакшн версии файлов из папки `/root` ветки `gh-pages`, если
-это небыло сделано автоматически.
+## Installation
 
-![GitHub Pages settings](./assets/repo-settings.png)
+1. Clone the repository:
 
-### Статус деплоя
-
-Статус деплоя крайнего коммита отображается иконкой возле его идентификатора.
-
-- **Желтый цвет** - выполняется сборка и деплой проекта.
-- **Зеленый цвет** - деплой завершился успешно.
-- **Красный цвет** - во время линтинга, сборки или деплоя произошла ошибка.
-
-Более детальную информацию о статусе можно посмотреть кликнув по иконке, и в
-выпадающем окне перейти по ссылке `Details`.
-
-![Deployment status](./assets/deploy-status.png)
-
-### Живая страница
-
-Через какое-то время, обычно пару минут, живую страницу можно будет посмотреть
-по адресу указанному в отредактированном свойстве `homepage`. Например, вот
-ссылка на живую версию для этого репозитория
-[https://goitacademy.github.io/react-homework-template](https://goitacademy.github.io/react-homework-template).
-
-Если открывается пустая страница, убедись что во вкладке `Console` нет ошибок
-связанных с неправильными путями к CSS и JS файлам проекта (**404**). Скорее
-всего у тебя неправильное значение свойства `homepage` в файле `package.json`.
-
-### Маршрутизация
-
-Если приложение использует библиотеку `react-router-dom` для маршрутизации,
-необходимо дополнительно настроить компонент `<BrowserRouter>`, передав в пропе
-`basename` точное название твоего репозитория. Слеш в начале строки обязателен.
-
-```jsx
-<BrowserRouter basename="/your_repo_name">
-  <App />
-</BrowserRouter>
+```bash
+git clone https://github.com/your-username/project-FoodBoutique.git
 ```
 
-## Как это работает
+2. Navigate to the project folder:
 
-![How it works](./assets/how-it-works.png)
+```bash
+cd project-FoodBoutique
+```
 
-1. После каждого пуша в ветку `main` GitHub-репозитория, запускается специальный
-   скрипт (GitHub Action) из файла `.github/workflows/deploy.yml`.
-2. Все файлы репозитория копируются на сервер, где проект инициализируется и
-   проходит линтинг и сборку перед деплоем.
-3. Если все шаги прошли успешно, собранная продакшн версия файлов проекта
-   отправляется в ветку `gh-pages`. В противном случае, в логе выполнения
-   скрипта будет указано в чем проблема.
+3. Install dependencies:
+
+```bash
+npm install
+```
+
+4. Start the development server:
+
+```bash
+npm start
+```
+
+5. Open the app in your browser:
+
+```text
+http://localhost:3000
+```
+
+## Environment Variables
+
+This project currently does not require local environment variables. API requests are sent directly to the public Food Boutique API:
+
+```text
+https://food-boutique.b.goit.study/api
+```
+
+For a production-grade version, the API base URL could be moved into an environment variable such as:
+
+```env
+REACT_APP_API_BASE_URL=https://food-boutique.b.goit.study/api
+```
+
+## Available Scripts
+
+```bash
+npm start
+```
+
+Runs the app in development mode.
+
+```bash
+npm run build
+```
+
+Creates an optimized production build in the `build` folder.
+
+```bash
+npm test
+```
+
+Runs the test watcher.
+
+```bash
+npm run lint:js
+```
+
+Runs ESLint for JavaScript and JSX files in `src`.
+
+## Project Structure
+
+```text
+project-FoodBoutique/
+  public/                 Static public assets and HTML entry point
+  src/
+    components/           Reusable UI components
+    helpers/              API service, cart context, shared helpers, base styles
+    images/               Local images and SVG sprite
+    pages/                Route-level pages
+    index.js              React entry point and router setup
+    index.css             Global CSS imports
+  assets/                 README and deployment images
+  package.json            Dependencies and project scripts
+```
+
+## Key Implementation Details
+
+- The application uses React Router for page navigation between the home page and cart page.
+- Cart state is provided through React Context and persisted in `localStorage` so users do not lose their cart after refreshing the page.
+- Product data, categories, popular products, discounted products, newsletter subscription, and order submission are handled through a dedicated API service class.
+- Product cards and modals share the same cart actions to keep the shopping flow consistent.
+- Pagination is handled on the client after fetching the product list from the API.
+
+## What I Learned
+
+- Building a multi-page React storefront with shared layout and route-level pages
+- Managing cross-component cart state with Context
+- Persisting UI state with `localStorage`
+- Working with REST API endpoints for catalog, subscription, and order flows
+- Creating reusable product, modal, filter, and cart components
+- Preparing a React project for GitHub Pages deployment
+
+## Future Improvements
+
+- Add mobile-first responsive styles for all primary layouts
+- Improve accessibility for custom dropdowns, product cards, icon buttons, and modals
+- Add user-facing error states for failed API requests
+- Wait for successful order submission before showing the success modal and clearing the cart
+- Replace the dual cart/order arrays with a single normalized cart state
+- Add tests for cart logic, checkout behavior, filters, and API failure states
+- Move API base URL into a configuration file or environment variable
+- Add product image lazy loading and request pagination to improve performance
+- Update project metadata in `package.json` to match the portfolio project
+
+## Author
+
+Created by **Your Name**.
+
+- GitHub: [your-username](https://github.com/your-username)
+- LinkedIn: [your-linkedin-profile](https://www.linkedin.com/in/your-linkedin-profile/)
