@@ -53,9 +53,10 @@ Add screenshots before sharing this project with recruiters:
 
 Example:
 
-```md
+### Home Page
+
 ![Food Boutique home page](./assets/screenshots/home.png)
-```
+
 
 ## Installation
 
