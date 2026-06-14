@@ -1,14 +1,18 @@
 # Food Boutique
 
-Food Boutique is a responsive React e-commerce application for browsing grocery products, filtering the catalog, managing a shopping cart, and placing a demo order. The project focuses on a clean product discovery flow, cart persistence, API-driven content, and a polished storefront experience suitable for a frontend portfolio.
+Food Boutique is a responsive React e-commerce application for browsing grocery
+products, filtering the catalog, managing a shopping cart, and placing a demo
+order. The project focuses on a clean product discovery flow, cart persistence,
+API-driven content, and a polished storefront experience suitable for a frontend
+portfolio.
 
 ## Live Demo
 
-[Live demo link](https://your-username.github.io/project-FoodBoutique/)
+[Live demo link](https://summermoved0n.github.io/project-FoodBoutique/)
 
 ## GitHub Repository
 
-[GitHub repository link](https://github.com/your-username/project-FoodBoutique)
+[GitHub repository link](https://github.com/summermoved0n)
 
 ## Main Features
 
@@ -58,7 +62,7 @@ Example:
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/project-FoodBoutique.git
+git clone https://github.com/summermoved0n/project-FoodBoutique
 ```
 
 2. Navigate to the project folder:
@@ -83,20 +87,6 @@ npm start
 
 ```text
 http://localhost:3000
-```
-
-## Environment Variables
-
-This project currently does not require local environment variables. API requests are sent directly to the public Food Boutique API:
-
-```text
-https://food-boutique.b.goit.study/api
-```
-
-For a production-grade version, the API base URL could be moved into an environment variable such as:
-
-```env
-REACT_APP_API_BASE_URL=https://food-boutique.b.goit.study/api
 ```
 
 ## Available Scripts
@@ -143,15 +133,22 @@ project-FoodBoutique/
 
 ## Key Implementation Details
 
-- The application uses React Router for page navigation between the home page and cart page.
-- Cart state is provided through React Context and persisted in `localStorage` so users do not lose their cart after refreshing the page.
-- Product data, categories, popular products, discounted products, newsletter subscription, and order submission are handled through a dedicated API service class.
-- Product cards and modals share the same cart actions to keep the shopping flow consistent.
-- Pagination is handled on the client after fetching the product list from the API.
+- The application uses React Router for page navigation between the home page
+  and cart page.
+- Cart state is provided through React Context and persisted in `localStorage`
+  so users do not lose their cart after refreshing the page.
+- Product data, categories, popular products, discounted products, newsletter
+  subscription, and order submission are handled through a dedicated API service
+  class.
+- Product cards and modals share the same cart actions to keep the shopping flow
+  consistent.
+- Pagination is handled on the client after fetching the product list from the
+  API.
 
 ## What I Learned
 
-- Building a multi-page React storefront with shared layout and route-level pages
+- Building a multi-page React storefront with shared layout and route-level
+  pages
 - Managing cross-component cart state with Context
 - Persisting UI state with `localStorage`
 - Working with REST API endpoints for catalog, subscription, and order flows
@@ -161,9 +158,11 @@ project-FoodBoutique/
 ## Future Improvements
 
 - Add mobile-first responsive styles for all primary layouts
-- Improve accessibility for custom dropdowns, product cards, icon buttons, and modals
+- Improve accessibility for custom dropdowns, product cards, icon buttons, and
+  modals
 - Add user-facing error states for failed API requests
-- Wait for successful order submission before showing the success modal and clearing the cart
+- Wait for successful order submission before showing the success modal and
+  clearing the cart
 - Replace the dual cart/order arrays with a single normalized cart state
 - Add tests for cart logic, checkout behavior, filters, and API failure states
 - Move API base URL into a configuration file or environment variable
@@ -172,7 +171,8 @@ project-FoodBoutique/
 
 ## Author
 
-Created by **Your Name**.
+Created by **DmytroShulzhenko**.
 
-- GitHub: [your-username](https://github.com/your-username)
-- LinkedIn: [your-linkedin-profile](https://www.linkedin.com/in/your-linkedin-profile/)
+- GitHub: [your-username](https://github.com/summermoved0n)
+- LinkedIn:
+  [your-linkedin-profile](https://www.linkedin.com/in/dmytro-shulzhenko-software-engineer/)
