@@ -30,10 +30,14 @@ export const DiscountProductsItem = ({
             )}
             <div className="discount-image">
               <img
-                // className="discount-image"
+                className="discount-product-image"
                 src={img}
                 alt={name}
                 width={105}
+                height={105}
+                loading="lazy"
+                decoding="async"
+                sizes="105px"
               />
             </div>
             <div className="discount-content-conteiner">

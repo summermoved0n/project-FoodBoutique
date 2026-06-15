@@ -1,5 +1,6 @@
 .conteiner {
-  max-width: 1240px;
+  width: 100%;
+  max-width: 1270px;
   margin: 0 auto;
   padding: 0 15px;
 }
@@ -106,6 +107,7 @@
 .footer-top-wraper {
   display: flex;
   justify-content: space-between;
+  gap: 40px;
   margin-bottom: 128px;
 }
 
@@ -155,7 +157,7 @@
 }
 
 .footer-center-wraper {
-  width: 410px;
+  width: min(100%, 410px);
 }
 
 .footer-title {
@@ -186,7 +188,8 @@
 }
 
 .footer-input {
-  width: 300px;
+  width: 100%;
+  max-width: 336px;
   height: 48px;
   padding: 0 18px;
   border-radius: 30px;
@@ -210,7 +213,8 @@
 }
 
 .footer-send-btn {
-  width: 336px;
+  width: 100%;
+  max-width: 336px;
   height: 48px;
   border: none;
   border-radius: 30px;
@@ -228,6 +232,7 @@
 .footer-bottom-wraper {
   display: flex;
   justify-content: space-between;
+  gap: 20px;
 }
 
 .footer-bottom-text {
@@ -254,4 +259,100 @@
   color: #e8e8e2;
   font-size: 14px;
   line-height: 1.29;
+}
+
+@media screen and (max-width: 1023px) {
+  .header {
+    padding-bottom: 60px;
+  }
+
+  .footer-top-wraper {
+    flex-wrap: wrap;
+    margin-bottom: 80px;
+  }
+
+  .footer-left-wraper,
+  .footer-form {
+    flex: 1 1 300px;
+  }
+
+  .footer-center-wraper {
+    order: 3;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .conteiner {
+    padding: 0 20px;
+  }
+
+  .header {
+    padding-bottom: 48px;
+  }
+
+  .header-conteiner {
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .header-icon-link {
+    height: 44px;
+    padding: 0;
+  }
+
+  .header-food-boutique {
+    width: 120px;
+  }
+
+  .header-navigation {
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .header-navigation .header-home-link {
+    padding: 9px 18px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .header-navigation .header-cart-link {
+    gap: 8px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .header-nav-icon-conteiner {
+    width: 34px;
+    height: 34px;
+  }
+
+  .footer {
+    padding-top: 32px;
+  }
+
+  .footer-top-wraper {
+    flex-direction: column;
+    gap: 32px;
+    margin-bottom: 64px;
+  }
+
+  .footer-title {
+    font-size: 30px;
+  }
+
+  .footer-text,
+  .footer-subscribe-text {
+    font-size: 16px;
+  }
+
+  .footer-input,
+  .footer-send-btn {
+    max-width: none;
+  }
+
+  .footer-bottom-wraper {
+    flex-direction: column;
+  }
 }

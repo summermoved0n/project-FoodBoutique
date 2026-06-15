@@ -21,7 +21,6 @@ export function Loyaot() {
 
   const onInputChange = e => {
     const { value } = e.currentTarget;
-    console.log(value);
     setInput(value);
   };
 
@@ -35,7 +34,6 @@ export function Loyaot() {
         toast(`${data.message}`, {
           duration: 8000,
         });
-        console.log(data.message);
       })
       .catch(data => {
         toast(`${data}`, {

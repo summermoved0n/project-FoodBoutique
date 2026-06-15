@@ -55,13 +55,21 @@ export const CartItem = ({ products, handleDelete, order, setOrder }) => {
               </svg>
             </button>
             <div className="cart-image-wraper">
-              <img src={img} alt={name} width={72} />
+              <img
+                src={img}
+                alt={name}
+                width={72}
+                height={72}
+                loading="lazy"
+                decoding="async"
+                sizes="72px"
+              />
             </div>
             <div className="cart-item-content-wraper">
               <div>
                 <h3 className="cart-item-title">{name}</h3>
                 <span className="cart-item-text">
-                  Category: <span>{category}</span>
+                  Category: <span>{category.replace(/_/g, ' ')}</span>
                 </span>
                 <span className="cart-item-text">
                   Size: <span>{size}</span>

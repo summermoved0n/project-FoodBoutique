@@ -32,7 +32,16 @@ export const PopularProductsItem = ({
               modalClick(_id);
             }}
           >
-            <img className="popular-image" src={img} alt={name} width={56} />
+            <img
+              className="popular-image"
+              src={img}
+              alt={name}
+              width={56}
+              height={56}
+              loading="lazy"
+              decoding="async"
+              sizes="56px"
+            />
             <div className="popular-content-conteiner">
               <h3 className="popular-item-title">{name}</h3>
               <ul className="popular-content-list">

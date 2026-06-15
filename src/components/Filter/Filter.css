@@ -12,14 +12,17 @@
 .filter-form {
   display: flex;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 .filter-input-wraper {
   position: relative;
+  flex: 1 1 249px;
+  min-width: 0;
 }
 
 .filter-input {
-  width: 249px;
+  width: 100%;
   height: 52px;
   border-radius: 30px;
   border: 1px solid rgba(1, 1, 1, 0.3);
@@ -60,6 +63,7 @@
 
 .filter-select-wraper {
   position: relative;
+  flex: 0 1 200px;
 }
 
 .filter-icon-arrows {
@@ -72,6 +76,7 @@
 
 .filter-select-byquery-wraper {
   position: relative;
+  flex: 0 1 200px;
 }
 
 .filter-icon-arrows-byquery {
@@ -80,4 +85,29 @@
   top: 50%;
   right: 20px;
   transform: translateY(-50%);
+}
+
+@media screen and (max-width: 767px) {
+  .filter-section {
+    padding-bottom: 40px;
+  }
+
+  .filter-form {
+    flex-direction: column;
+  }
+
+  .filter-input-wraper,
+  .filter-select-wraper,
+  .filter-select-byquery-wraper {
+    width: 100%;
+    flex-basis: auto;
+  }
+
+  .filter-input {
+    font-size: 16px;
+  }
+
+  .filter-input::placeholder {
+    font-size: 16px;
+  }
 }

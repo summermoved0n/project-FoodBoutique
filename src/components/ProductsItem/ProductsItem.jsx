@@ -43,6 +43,10 @@ export const ProductsItem = ({
                 src={img}
                 alt={name}
                 width={140}
+                height={140}
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 767px) 140px, 140px"
               />
             </div>
             <h3 className="products-title">{name}</h3>

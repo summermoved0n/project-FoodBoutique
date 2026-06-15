@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import icons from '../../images/icons.svg';
+import orderSuccess from '../../images/ordersuccess.png';
+import orderSuccess2x from '../../images/ordersuccess-2x.png';
+import shadow from '../../images/shadow.png';
+import shadow2x from '../../images/shadow-2x.png';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -39,15 +43,20 @@ export const CartModal = ({ closeModal }) => {
         <div className="cart-modal-image-wraper">
           <img
             className="cart-modal-tomatoes"
-            src={require('../../images/ordersuccess.png')}
-            alt="Tomatoes"
+            src={orderSuccess}
+            srcSet={`${orderSuccess} 1x, ${orderSuccess2x} 2x`}
+            alt="Order success tomatoes"
             width={140}
+            height={140}
           />
           <img
             className="cart-modal-shadow"
-            src={require('../../images/shadow.png')}
-            alt="Tomatoes"
+            src={shadow}
+            srcSet={`${shadow} 1x, ${shadow2x} 2x`}
+            alt=""
+            aria-hidden="true"
             width={140}
+            height={40}
           />
         </div>
         <h3 className="cart-modal-title">Order success</h3>

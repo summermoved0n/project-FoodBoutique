@@ -9,6 +9,17 @@
   --black: rgba(1, 1, 1, 1);
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
 button {
   cursor: pointer;
 }

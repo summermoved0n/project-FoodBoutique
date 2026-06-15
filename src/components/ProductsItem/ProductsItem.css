@@ -1,5 +1,6 @@
 .products-item {
-  width: 255px;
+  width: 100%;
+  min-width: 0;
   background-color: #fafafa;
   border-radius: 20px;
   padding: 20px;
@@ -36,7 +37,24 @@
   display: flex;
   gap: 9px 8px;
   flex-wrap: wrap;
-  width: 220px;
+  width: 100%;
+}
+
+.products-image {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 767px) {
+  .products-item {
+    padding: 18px;
+  }
+
+  .products-title,
+  .products-text-price {
+    font-size: 18px;
+  }
 }
 
 .products-text-item {

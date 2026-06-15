@@ -70,7 +70,15 @@ export function Modal({
                 <use xlinkHref={`${icons}#icon-remove`}></use>
               </svg>
             </button>
-            <img className="modal-image" src={img} alt={name} width={160} />
+            <img
+              className="modal-image"
+              src={img}
+              alt={name}
+              width={160}
+              height={160}
+              decoding="async"
+              sizes="160px"
+            />
             <div>
               <h3 className="modal-title">{name}</h3>
               <ul className="modal-list">

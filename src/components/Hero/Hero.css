@@ -3,7 +3,7 @@
 }
 .hero-title {
   text-align: center;
-  font-size: 80px;
+  font-size: clamp(44px, 6.5vw, 80px);
   font-weight: 500;
   line-height: 1;
   letter-spacing: -0.02em;
@@ -16,7 +16,7 @@
 
 .hero-text {
   margin: 0 auto;
-  width: 492px;
+  width: min(100%, 492px);
   text-align: center;
   font-size: 18px;
   line-height: 1.33; /* 133.333% */
@@ -24,9 +24,14 @@
 }
 
 .hero-image {
-  width: 1240px;
-  height: 350px;
+  width: 100%;
+  min-height: 350px;
+  aspect-ratio: 1240 / 350;
   background-image: url(../../images/hero-dt.jpg);
+  background-image: image-set(
+    url(../../images/hero-dt.jpg) 1x,
+    url(../../images/hero-dt-2x.jpg) 2x
+  );
   border: 1px solid #000;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   border-radius: 60px;
@@ -43,4 +48,51 @@
   height: 100px;
   width: 100px;
   transform: translateY(-50%);
+}
+
+@media screen and (max-width: 1023px) {
+  .hero {
+    padding-bottom: 60px;
+  }
+
+  .hero-image {
+    min-height: 300px;
+    border-radius: 40px;
+    background-image: url(../../images/hero-tab.jpg);
+    background-image: image-set(
+      url(../../images/hero-tab.jpg) 1x,
+      url(../../images/hero-tab-2x.jpg) 2x
+    );
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .hero {
+    padding-bottom: 48px;
+  }
+
+  .hero-title {
+    margin-bottom: 16px;
+  }
+
+  .hero-text {
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+
+  .hero-image {
+    min-height: 240px;
+    border-radius: 30px;
+    background-image: url(../../images/hero-mob.jpg);
+    background-image: image-set(
+      url(../../images/hero-mob.jpg) 1x,
+      url(../../images/hero-mob-2x.jpg) 2x
+    );
+  }
+
+  .hero-icon {
+    right: 10px;
+    width: 72px;
+    height: 72px;
+  }
 }

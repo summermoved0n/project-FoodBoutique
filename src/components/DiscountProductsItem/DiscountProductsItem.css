@@ -1,6 +1,7 @@
 .discount-item {
   padding: 16px;
-  width: 243px;
+  width: 100%;
+  min-width: 0;
   border-radius: 15px;
   background-color: #fafafa;
   position: relative;
@@ -8,13 +9,19 @@
 }
 
 .discount-image {
-  height: 150px;
+  min-height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
   background-color: #e8e8e2;
   margin-bottom: 16px;
+}
+
+.discount-product-image {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .discount-content-conteiner {
@@ -27,6 +34,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  min-width: 0;
 }
 
 .discount-content-text {
@@ -36,6 +44,16 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 767px) {
+  .discount-image {
+    min-height: 130px;
+  }
+
+  .discount-content-text {
+    font-size: 18px;
+  }
 }
 
 .discount-icon {

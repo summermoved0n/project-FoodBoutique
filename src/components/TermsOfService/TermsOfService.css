@@ -8,14 +8,15 @@
   justify-content: center;
   align-items: center;
   background-color: rgba(1, 1, 1, 0.4);
+  padding: 20px;
 }
 
 .terms-of-service-content {
   position: relative;
   padding: 50px 20px 30px 30px;
   background-color: #fafafa;
-  width: 50%;
-  height: 70%;
+  width: min(100%, 760px);
+  height: min(70%, 760px);
   border-radius: 20px;
 }
 
@@ -59,4 +60,23 @@
   font-size: 18px;
   font-weight: 500;
   color: #6d8434;
+}
+
+@media screen and (max-width: 767px) {
+  .terms-of-service-dropbox {
+    align-items: flex-start;
+    padding: 16px;
+  }
+
+  .terms-of-service-content {
+    width: 100%;
+    height: calc(100vh - 32px);
+    padding: 48px 16px 24px;
+    border-radius: 16px;
+  }
+
+  .terms-of-service-close-btn {
+    top: 18px;
+    right: 18px;
+  }
 }

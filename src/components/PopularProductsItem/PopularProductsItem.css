@@ -1,5 +1,6 @@
 .popular-item {
-  max-width: 251px;
+  width: 100%;
+  max-width: none;
   padding: 12px;
   display: flex;
   gap: 10px;
@@ -13,17 +14,25 @@
   padding: 9px;
   border-radius: 10px;
   background-color: #e8e8e2;
+  flex: 0 0 auto;
+  object-fit: contain;
 }
 
 .popular-content-conteiner {
   display: flex;
   flex-wrap: wrap;
+  min-width: 0;
+  padding-right: 24px;
 }
 
 .popular-item-title {
   font-size: 20px;
   font-weight: 500;
   line-height: 1.2;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .popular-content-list {

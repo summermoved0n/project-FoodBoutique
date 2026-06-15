@@ -1,5 +1,6 @@
 .dropdown-by-query {
   position: relative;
+  width: 100%;
 }
 
 .dropdown-by-query .dropdown-btn-by-query {
@@ -7,7 +8,8 @@
   display: flex;
   align-items: center;
   padding: 0 20px;
-  width: 160px;
+  width: 100%;
+  min-width: 160px;
   height: 52px;
   border-radius: 30px;
   background-color: var(--cards-color);
@@ -29,10 +31,23 @@
   position: absolute;
   padding: 14px 20px;
   border-radius: 15px;
-  width: 160px;
+  width: 100%;
+  min-width: 160px;
   box-shadow: 0 4px 11px 0 rgba(0, 0, 0, 0.04),
     0 20px 69px 0 rgba(0, 0, 0, 0.07);
   background: #fff;
+}
+
+@media screen and (max-width: 767px) {
+  .dropdown-by-query .dropdown-btn-by-query,
+  .dropdown-by-query .dropdown-content-by-query .dropdown-item-by-query {
+    font-size: 16px;
+  }
+
+  .dropdown-by-query .dropdown-btn-by-query,
+  .dropdown-by-query .dropdown-content-by-query {
+    min-width: 0;
+  }
 }
 
 .dropdown-by-query .dropdown-content-by-query .dropdown-item-by-query {

@@ -5,6 +5,8 @@ import icons from '../../images/icons.svg';
 import { Link } from 'react-router-dom';
 import { CartModal } from 'components/CartModal/CartModal';
 import FoodBoutiqueApi from 'helpers/api-service';
+import basket from '../../images/basket.png';
+import basket2x from '../../images/basket-2x.png';
 
 const FoodBoutique = new FoodBoutiqueApi();
 
@@ -76,9 +78,6 @@ export default function Cart() {
               onClick={onDeleteAll}
             >
               Delete all{' '}
-              <svg className="cart-delete-icon">
-                <use xlinkHref={`${icons}#icon-remove`}></use>
-              </svg>
             </button>
             <ul className="cart-list">
               {addCart && (
@@ -124,9 +123,12 @@ export default function Cart() {
       ) : (
         <div className="cart-empty-conteiner">
           <img
-            src={require('../../images/basket.png')}
-            alt="Basket"
+            className="cart-empty-image"
+            src={basket}
+            srcSet={`${basket} 1x, ${basket2x} 2x`}
+            alt="Empty shopping basket"
             width={164}
+            height={140}
           />
           <h3 className="cart-empty-title">
             Your basket is <Link to="/">empty...</Link>

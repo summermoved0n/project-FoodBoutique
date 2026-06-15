@@ -1,5 +1,6 @@
 .home-conteiner {
-  max-width: 1240px;
+  width: 100%;
+  max-width: 1270px;
   margin: 0 auto;
   padding: 0 15px 61px;
   /* outline: 1px solid red; */
@@ -8,8 +9,41 @@
 .home-section {
   display: flex;
   gap: 40px;
+  align-items: flex-start;
 }
 
 .home-left-wraper {
-  width: 925px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.home-right-wraper {
+  flex: 0 0 275px;
+}
+
+@media screen and (max-width: 1023px) {
+  .home-conteiner {
+    padding-bottom: 50px;
+  }
+
+  .home-section {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .home-left-wraper,
+  .home-right-wraper {
+    width: 100%;
+    flex-basis: auto;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .home-conteiner {
+    padding: 0 20px 40px;
+  }
+
+  .home-section {
+    gap: 40px;
+  }
 }

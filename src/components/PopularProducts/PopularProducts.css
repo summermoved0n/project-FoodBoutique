@@ -10,7 +10,19 @@
 }
 
 .popular-products-list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 13px;
+}
+
+@media screen and (max-width: 1023px) {
+  .popular-products-list {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .popular-products-title {
+    font-size: 24px;
+  }
 }
